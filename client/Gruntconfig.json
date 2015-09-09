@@ -1,0 +1,50 @@
+{
+
+  "configVars": {
+    "app": "app",
+    "appjs": "scripts",
+    "appstyles": "assets",
+    "build": ".tmp",
+    "dist": "dist",
+    "hostname": "localhost",
+    "port": 9090,
+    "devport": 9000
+  },
+  "bowerFiles": [
+    "angular/angular.js",
+    "angular-mocks/angular-mocks.js",
+    "angular-strap/dist/angular-strap.js",
+    "angular-strap/dist/angular-strap.tpl.js",
+    "angular-ui-router/release/angular-ui-router.js",
+    "angularAMD/angularAMD.js",
+    "bootbox/bootbox.js",
+    "bootstrap/dist/js/bootstrap.min.js",
+    "jquery/dist/jquery.min.js",
+    "ngstorage/ngStorage.min.js",
+    "requirejs/require.js",
+    "requirejs-text/text.js",
+    "underscore/underscore.js",
+    "jquery.scrollbar/jquery.scrollbar.min.js",
+    "select2/select2.js",
+    "angular-select2/dist/angular-select2.js"
+  ],
+  "cssFiles": [
+    "bower_components/bootstrap/dist/css/*.css",
+    "bower_components/jquery.scrollbar/jquery.scrollbar.css",
+    "bower_components/select2/*.css"
+  ],
+  "cssImages": [
+    "select2/*.gif",
+    "select2/*.png"
+  ],
+  "cssFonts": [
+    "bootstrap/dist/fonts/**"
+  ],
+  "buildFiles": [
+    "scripts/ext/require.js", "scripts/ext/edited/**", "assets/**", "scripts/main.js", "resources/**"
+  ],
+  "deployFiles": [
+    "index.html", "assets/**", "scripts/**", "!scripts/**/*.html", "!scripts/**/*.json", "resources/**"
+  ]
+
+}

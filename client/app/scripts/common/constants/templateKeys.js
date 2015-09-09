@@ -1,0 +1,31 @@
+define([], function () {
+	'use strict';
+    return {
+        'Login': 1,
+        'Error': 2,
+        'AppMain': 3,
+        'Home': 4,
+        'Users': 5,
+        'UserGps': 6,
+        'themes': 7,
+        'ThemeForm': 8,
+        'ThemesList': 9,
+        'Profile': 10,
+        'ProfileForm': 11,
+        'ProfileDetail': 12,
+        'Events': 13,
+        'EventsList': 14,
+        'EventForm': 15,
+        'AMPicks': 16,
+        'AMPicksList': 17,
+        'AMPickForm': 18,
+        'PushNotifications': 19,
+        'PushNotificationsList': 20,
+        'PushNotificationsForm': 21,
+        'PostsLibrary': 22,
+        'MyPublishedPosts': 23,
+        'CaseStudies': 24,
+        'CaseStudiesList': 25,
+        'CaseStudyForm': 26,
+    };
+});

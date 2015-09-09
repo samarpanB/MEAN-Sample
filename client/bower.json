@@ -1,0 +1,43 @@
+{
+  "name": "TemplateCodeArchitecture",
+  "version": "0.0.0",
+  "authors": [
+    "Samarpan Bhattacharya <samarpan@metadesignsolutions.com>"
+  ],
+  "description": "This is a template to show a sample code architecture for angular js aprojects with all the various best practices & workflows.",
+  "main": "main.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.3",
+    "requirejs": "~2.1.18",
+    "angularAMD": "~0.2.1",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "requirejs-text": "~2.0.14",
+    "underscore": "~1.8.3",
+    "bootstrap": "~3.3.5",
+    "angular-strap": "~2.2.4",
+    "bootbox": "~4.4.0",
+    "ngstorage": "~0.3.6",
+    "jquery.scrollbar": "~0.2.7",
+    "angular-select2": "~1.4.1",
+    "select2": "3.5.2",
+    "jquery-ui": "~1.11.4",
+    "angular-mocks": "~1.4.4"
+  },
+  "resolutions": {
+    "angular": "~1.4.3"
+  }
+}

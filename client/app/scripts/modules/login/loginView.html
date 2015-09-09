@@ -1,0 +1,42 @@
+<!-- / login container \ -->
+<div id="loginCntr">
+    <!-- / Start login Area \ -->
+    <div class="outer">
+        <div class="middle">
+            <div class="inner loginPanel">
+                <h2 class="text-center semi-bold">Login</h2>
+                <form name="loginForm" novalidate ng-submit="login(loginModel.userName, loginModel.password)">
+                    <div class="p-t-15 p-b-25 loginFormWrapper">
+                        <div class="form-group" ng-class="{'error-control':loginForm.$submitted && loginForm.userName.$error.required}">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username" required ng-model="loginModel.userName" name="userName">
+                            <span class="error"  ng-show="loginForm.$submitted && loginForm.userName.$error.required">
+                                <label for="userName" class="error">Invalid Username!</label>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'error-control':loginForm.$submitted && loginForm.password.$error.required}">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password" required ng-model="loginModel.password" name="password">
+                            <span class="error" ng-show="loginForm.$submitted && loginForm.password.$error.required">
+                                <label for="password" class="error">Invalid Password!</label>
+                            </span>
+                        </div>
+                        <div class="checkbox check-default">
+                           <input type="checkbox" value="1" id="rememberMeCheckbox" ng-model="loginModel.rememberMe" ng-change="onRememberMeChange(loginModel.rememberMe)" id="rememberMeCheckbox">
+                           <label for="rememberMeCheckbox">Keep me logged in</label>
+                        </div>
+                    </div>
+                    <div class="p-t-15 p-b-15 loginFormAction">
+                        <div class="loginFormWrapper">
+                            <button type="submit" class="btn btn-primary btn-more-padding btn-bold-text pull-left">Login</button>
+                            <a href="" class="link large-text pull-right forgotPassLink">Forgot password?</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- \ login container / -->
+
+</div>

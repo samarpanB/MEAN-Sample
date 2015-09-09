@@ -1,0 +1,11 @@
+{
+    "userName":"x",
+    "email":"test@abc.com",
+	"fName":"Test",
+    "lName":"ABC",
+    "designation":"",
+    "company":"",
+    "photoUrl":"",
+    "phone":"",
+    "status":1
+}

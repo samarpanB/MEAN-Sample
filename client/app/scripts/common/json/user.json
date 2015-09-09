@@ -1,0 +1,11 @@
+{
+    "userName":"",
+    "email":"",
+	"fName":"",
+    "lName":"",
+    "designation":"",
+    "company":"",
+    "photoUrl":"",
+    "phone":"",
+    "status":1
+}

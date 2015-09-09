@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- <link rel="shortcut icon" type="image/png" href="favicon.ico"/> -->
+
+    <!-- Responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="assets/css/external.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div ui-view  class="mainView" ng-hide="isRouting" style="height: 500px;"></div>
+    <!-- <div class="loader-wrapper" style="height:100%" ng-show="isRouting">
+        <div class="loaderdiv"></div>
+    </div> -->
+    <script src="scripts/ext/require.js" data-main="scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+
+Running "jshint:build" (jshint) task
+>> 36 files lint free.
+
+Running "clean:build" (clean) task
+>> 0 paths cleaned.
+
+Running "preprocess:build" (preprocess) task
+
+Running "htmlmin:build" (htmlmin) task
+Minified .tmp/index.html 1.08 kB → 727 B
+
+Running "requirejs:build" (requirejs) task
+>> RequireJS optimizer finished
+
+app
+Uncompressed size: 1915899 bytes.
+Compressed size: 169920 bytes gzipped. (537201 bytes minified)
+
+modules/main/mainController
+Uncompressed size: 1915899 bytes.
+Compressed size: 2130 bytes gzipped. (8232 bytes minified)
+
+Running "clean:post-requirejs" (clean) task
+>> 1 path cleaned.
+
+Running "copy:build" (copy) task
+Created 4 directories, copied 12 files
+
+Running "clean:deploy" (clean) task
+>> 0 paths cleaned.
+
+Running "copy:deploy" (copy) task
+Created 13 directories, copied 17 files
+
+Running "cleanempty:deploy" (cleanempty) task
+>> 31 paths cleaned.
+
+Running "compress:zip" (compress) task
+Created build.zip (419414 bytes)
+
+Running "connect:deploy" (connect) task
+Waiting forever...
+Started connect web server on http://localhost:9090
