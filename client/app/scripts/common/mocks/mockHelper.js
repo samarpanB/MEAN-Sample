@@ -1,4 +1,4 @@
-define(['config', 'angular'], function (Config) {
+define(['config', 'angular', 'underscore'], function (Config, angular, _) {
 	'use strict';
 
 	/* Mocking Helper  */
@@ -26,35 +26,67 @@ define(['config', 'angular'], function (Config) {
 				}
 			},
 
-			updateItemsFromStorage: function(collection, savedItems, editedItems, removedItem) {
+			updateItemsToStore: function(collection, savedItem, editedItem, removedItemId) {
             	// add new 
-	            if(angular.isDefined(savedItems))
+	            if(savedItem)
 	            {
-	                collection.records = collection.records.concat(savedItems);
+	                collection.records.push(savedItem);
+	                collection.totalRecords++;
 	            }
 	            // modify 
-	            if(angular.isDefined(editedItems))
+	            if(editedItem)
 	            {
 	                angular.forEach(collection.records,function(val,key){
-	                    if(val.id === Number(editedItems[0].id))
+	                    if(val.id === Number(editedItem.id))
 	                    {
-	                        collection.records[key] = editedItems[0];
+	                        collection.records[key] = editedItem;
 	                    }
 	                });
 	            }
 	            // delete
-	            if(angular.isDefined(removedItem))
+	            if(removedItemId)
 	            {
 	                angular.forEach(collection.records,function(val,key){
-	                    if(val.id === Number(removedItem.id))
+	                    if(val.id === Number(removedItemId))
 	                    {
 	                        collection.records.splice(key,1);
 	                    }
 	                });
+	                collection.totalRecords--;
 	            }
 
 	            return angular.copy(collection);
-	        }
+	        },
+
+	        findItemById: function(collection, itemId) {
+	        	var item = _.findWhere(collection.records, {id: itemId});
+	        	if(item) {
+	        		return [200, item, {}];
+	        	}
+	        	else {
+	        		return [404, {message: "Item not found !"}, {}];
+	        	}
+	        },
+
+	        findItemsByPage: function(collection, max, offset) {
+	        	var items = _.first(_.rest(collection.records, offset), max);
+	        	if(items) {
+	        		return [200, {records: items, totalRecords: collection.totalRecords}, {}];
+	        	}
+	        	else {
+	        		return [404, {message: "Items not found !"}, {}];
+	        	}
+	        },
+
+	        getObjFromQparams: function(qParams) {
+                var params = qParams.split('&');
+                var obj = {};
+                angular.forEach(params, function(p){
+                    var keyVal = p.split('=');
+                    obj[keyVal[0]] = keyVal[1];
+                });
+                return obj;
+            }
 		};
 	}];
 });

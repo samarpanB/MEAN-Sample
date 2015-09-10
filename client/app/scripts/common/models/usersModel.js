@@ -1,4 +1,4 @@
-define(['common/models/modelBase'],function(ModelBase){
+define(['common/models/modelBase', 'underscore'],function(ModelBase, _){
 	'use strict';
 	return ['$q', 'utils', '$http', function($q, utils, $http){
 		var self = null;
@@ -26,12 +26,12 @@ define(['common/models/modelBase'],function(ModelBase){
 			};
 
 			// Overridden
-			context.fetch = function(isReset) {
+			context.fetch = function(isReset, params) {
 				if(isReset || !context.promise)
 				{
 					context.clear();
 					context.isLoading = true;
-					context.promise = $http.get('users').then(function(response){
+					context.promise = $http.get('users', {params: params}).then(function(response){
 			 			context.promise = null;
 		 				context.setData(response.data);
 			 			context.isLoading = false;
@@ -51,6 +51,15 @@ define(['common/models/modelBase'],function(ModelBase){
 				context.data = angular.copy(origData);
 			};
 
+			context.delete = function(data) {
+	 			return $http.delete('users/'+data.id).then(function(){
+	 				var d = _.reject(context.data, function(item){
+	 					return item.id === data.id;
+	 				});
+	 				context.setData(d);
+	 			});
+	 		};
+
 	 		initialize();
 		}
 
@@ -58,7 +67,8 @@ define(['common/models/modelBase'],function(ModelBase){
 
 		// method to initiate model
 		function init() {
-			return new UsersModel();
+			self = new UsersModel();
+			return self;
 		}
 
 		// Invoked to get current instance 
@@ -66,9 +76,15 @@ define(['common/models/modelBase'],function(ModelBase){
 			return self;
 		}
 
+		function destroy() {
+            self = null;
+            return true;
+        }
+
 		return {
 			init: init,
-			get: get
+			get: get,
+            destroy: destroy
 		};
 	}];
 });

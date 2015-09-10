@@ -56,21 +56,21 @@ define(['common/models/modelBase', 'text!common/json/user.json'],function(ModelB
 			// Overridden
 	 		context.save = function(data){
 	 			return $http.post('users', data).then(function(response) {
-	 				context.setData(response);
+	 				context.setData(response.data);
 	 				return context.data;
 				});
 	 		};
 
 	 		// Overridden
 	 		context.update = function(data){
-	 			return $http.post('users/'+data.id, data).then(function(response) {
-	 				context.setData(response);
+	 			return $http.put('users/'+data.id, data).then(function(response) {
+	 				context.setData(response.data);
 	 				return context.data;
 				});
 	 		};
 
-	 		context.delete = function(data) {
-	 			return $http.delete('users/'+data.id).then(function() {
+	 		context.delete = function() {
+	 			return $http.delete('users/'+context.data.id).then(function() {
 	 				context.clear();
 				});
 	 		};
@@ -82,7 +82,8 @@ define(['common/models/modelBase', 'text!common/json/user.json'],function(ModelB
 
 		// method to initiate model
 		function init() {
-			return new UserModel();
+			self = new UserModel();
+			return self;
 		}
 
 		// Invoked to get current instance 
@@ -90,9 +91,15 @@ define(['common/models/modelBase', 'text!common/json/user.json'],function(ModelB
 			return self;
 		}
 
+		function destroy() {
+            self = null;
+            return true;
+        }
+
 		return {
 			init: init,
-			get: get
+			get: get,
+            destroy: destroy
 		};
 	}];
 });
