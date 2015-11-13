@@ -1,2 +1,163 @@
-<div class="content" ui-view="content" style="height: 100%">  
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse" ng-hide="isLoading"> 
+	<!-- BEGIN TOP NAVIGATION BAR -->
+	<div class="navbar-inner">
+		<!-- BEGIN NAVIGATION HEADER -->
+		<div class="header-seperation"> 
+			<!-- BEGIN MOBILE HEADER -->
+			<ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper">	
+				<li class="dropdown">
+					<a id="main-menu-toggle" href="#main-menu" class="">
+						<div class="iconset top-menu-toggle-white"></div>
+					</a>
+				</li>		 
+			</ul>
+			<!-- END MOBILE HEADER -->
+			<!-- BEGIN LOGO -->	
+			<a href="javascript:void(0)" class="logoLink"><!-- <img src="assets/img/logo.png" alt="" width="103" height="34"/> -->Demo</a>
+			<!-- END LOGO --> 
+		</div>
+		<!-- END NAVIGATION HEADER -->
+		<!-- BEGIN CONTENT HEADER -->
+		<div class="header-quick-nav"> 
+			<!-- BEGIN HEADER RIGHT SIDE SECTION -->
+			<div class="pull-right"> 
+				<!-- <div class="chat-toggler">	
+						<a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
+							<div class="fa fa-bell iconNotification">
+								<span class="badge badge-important animated bounceIn">1</span>
+							</div>
+						</a>	
+						<div id="notification-list" style="display:none">
+							<div style="width:250px">
+								  <div class="notification-messages info">
+											<div class="message-wrapper">
+												<div class="heading">
+													David Nester - Commented on your wall
+												</div>
+												<div class="description">
+													Meeting postponed to tomorrow
+												</div>
+												<div class="date pull-left">
+												A min ago
+												</div>										
+											</div>
+											<div class="clearfix"></div>									
+										</div>	
+									<div class="notification-messages danger">
+										<div class="message-wrapper">
+											<div class="heading">
+												Server load limited
+											</div>
+											<div class="description">
+												Database server has reached its daily capicity
+											</div>
+											<div class="date pull-left">
+											2 mins ago
+											</div>
+										</div>
+										<div class="clearfix"></div>
+									</div>	
+									<div class="notification-messages success">
+										<div class="message-wrapper">
+											<div class="heading">
+												You haveve got 150 messages
+											</div>
+											<div class="description">
+												150 newly unread messages in your inbox
+											</div>
+											<div class="date pull-left">
+											An hour ago
+											</div>									
+										</div>
+										<div class="clearfix"></div>
+									</div>							
+								</div>				
+						</div>    			
+				</div> -->
+				<ul class="nav quick-section">
+					<li class="quicklinks"> 
+						<a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="javascript:void(0)" id="user-options">
+							<div class="user-details"> 
+								<div class="username">
+									{{user.data.firstName}} <span class="bold">{{user.data.lastName || user.data.type}}</span>								
+								</div>
+								<div class="iconset top-down-arrow"></div>					
+							</div>
+						</a>
+						<ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+		                  	<li><a href="javascript:;"><i class="fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
+		                  	<li class="divider"></li>                
+		                  	<li><a href="javascript:void(0);" ng-click="logout()"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+		               </ul>
+					</li> 
+				</ul>
+	        </div>
+			<!-- END HEADER RIGHT SIDE SECTION -->
+		</div> 
+		<!-- END CONTENT HEADER --> 
+	</div>
+	<!-- END TOP NAVIGATION BAR --> 
+</div>
+<!-- END HEADER -->
+	
+<!-- BEGIN CONTENT -->
+<div class="page-container row-fluid" ng-hide="isLoading">
+	<!-- BEGIN SIDEBAR -->
+	<!-- BEGIN MENU -->
+	<div class="page-sidebar" id="main-menu"> 
+		<div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
+			<!-- BEGIN LOGO -->	
+			<a href="index.html" class="logoLinkSidebar"><!-- <img src="assets/img/logo.png" alt="" width="103" height="34"/> -->Demo</a>
+			<!-- END LOGO --> 
+			<!-- BEGIN SIDEBAR MENU -->	
+			<ul class="sidebarMenuList">	
+				<li class="start" menu-tree-item activate-menu="('main.app.home' | includedByState)">
+					<a ui-sref="main.app.home">
+						<i class="iconDashboard"></i>
+						<span class="title">Dashboard</span>
+					</a>
+				</li>
+				<!-- <li menu-tree-item 
+				activate-menu="('main.app.lawyers' | includedByState) || ('main.app.clerks' | includedByState) || ('main.app.clients' | includedByState)">
+					<a href="javascript:void(0)">
+                        <i class="fa fa-user"></i>
+                        <span class="title">Users</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu"> -->
+                        <li menu-tree-item activate-menu="('main.app.clients' | includedByState)">
+                            <a ui-sref="main.app.clients.list">
+                            	<i class="iconUsers"></i>
+                            	<span class="title">Clients</span>
+                        	</a>
+                        </li>
+                    <!-- </ul>
+				</li> -->
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+	<!-- BEGIN SCROLL UP HOVER -->
+	<a href="#" class="scrollup">Scroll</a>
+	<!-- END SCROLL UP HOVER -->
+	<!-- END MENU -->
+	<!-- END SIDEBAR --> 
+	<!-- BEGIN PAGE CONTAINER-->
+    <div class="page-content"> 
+        <div class="content" ui-view="content" onload="resize()">  
+            
+        </div>
+    </div>
+    <!-- END PAGE CONTAINER -->
+</div>
+<!-- END CONTENT --> 
+<div class="siteLoader" ng-show="isLoading">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <img src="assets/img/throbber.svg" width="16" height="16" alt=""/>
+            </div>
+        </div>
+    </div>
 </div>

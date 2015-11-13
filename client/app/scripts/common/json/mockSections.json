@@ -1,0 +1,34 @@
+[
+    {
+        "_id": "56025a9c44ee2f512cd79729",
+        "name": "Section 1",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.263Z",
+        "created": "2015-09-23T07:54:04.263Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7972a",
+        "name": "Section 2",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.264Z",
+        "created": "2015-09-23T07:54:04.264Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7972b",
+        "name": "Section 3",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.265Z",
+        "created": "2015-09-23T07:54:04.265Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7972c",
+        "name": "Section 4",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.265Z",
+        "created": "2015-09-23T07:54:04.265Z"
+    }
+]

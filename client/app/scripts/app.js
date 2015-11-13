@@ -5,7 +5,7 @@ define(['app.common', 'mainRoute', 'jquery'],
 
     // Setup dependencies for the main application angular module....
     var appDeps = ['ui.router', 'directives', 'filters', 'services', 'mocks', 'models', 'localization', 
-        'mgcrea.ngStrap', 'ngStorage', 'rt.select2'];
+        'mgcrea.ngStrap', 'ngStorage', 'rt.select2', 'datatables', 'datatables.bootstrap', 'ngTagsInput'];
 
     /**
      * @ngdoc overview
@@ -16,16 +16,28 @@ define(['app.common', 'mainRoute', 'jquery'],
         angular.module('mainApp', appDeps)
         // Config
         .config(routes)
-        .run(['$rootScope', '$urlRouter', '$location', '$state', '$sessionStorage',
-            function($rootScope, $urlRouter, $location, $state, $sessionStorage){
+        .run(['$rootScope', '$urlRouter', '$location', '$state', '$sessionStorage', 'globals', 'userModel',
+            function($rootScope, $urlRouter, $location, $state, $sessionStorage, globals, userModel){
                 // Store the current url path to navigate to it immediately....
                 $sessionStorage.routePath = $location.path();
 
                 $rootScope.isRouting = true;
+                // globals.loggedInUser = userModel.init();
 
                 // Resize handling....
                 $rootScope.resize = function() {
-                    // TODO
+                    var content = $('.page-content');
+                    var sidebar = $('.page-sidebar');
+
+                    if (!content.attr("data-height")) {
+                        content.attr("data-height", content.height());
+                    }
+
+                    if (sidebar.height() > content.height()) {
+                        content.css("min-height", sidebar.height() + 120);
+                    } else {
+                        content.css("min-height", content.attr("data-height"));
+                    }
                 };
                 $(window).on('resize', function(e){
                     $rootScope.resize();

@@ -1,11 +1,10 @@
 {
-    "userName":"x",
-    "email":"test@abc.com",
-	"fName":"Test",
-    "lName":"ABC",
-    "designation":"",
-    "company":"",
-    "photoUrl":"",
-    "phone":"",
-    "status":1
+    "_id": "55f6bfdf8c0e4475063f1fb2",
+    "username": "9999999999",
+    "type": "Admin",
+    "__v": 0,
+    "isDeleted": false,
+    "modified": "2015-09-14T12:38:55.579Z",
+    "created": "2015-09-14T12:38:55.579Z",
+    "active": true
 }

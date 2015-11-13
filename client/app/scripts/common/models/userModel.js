@@ -1,4 +1,4 @@
-define(['common/models/modelBase', 'text!common/json/user.json'],function(ModelBase, userJs){
+define(['common/models/modelBase', 'text!common/json/mockUser.json'],function(ModelBase, userJs){
 	'use strict';
 	return ['$q', 'utils', '$http', function($q, utils, $http){
 		var self = null;
@@ -18,7 +18,7 @@ define(['common/models/modelBase', 'text!common/json/user.json'],function(ModelB
 			// Overridden
 			context.clear = function() {
 				context.setData(model);
-				context.userId = 0;
+				context.userId = 'me';
 			};
 
 			// Overridden
@@ -53,27 +53,27 @@ define(['common/models/modelBase', 'text!common/json/user.json'],function(ModelB
 				context.data = angular.copy(origData);
 			};
 
-			// Overridden
-	 		context.save = function(data){
-	 			return $http.post('users', data).then(function(response) {
-	 				context.setData(response.data);
-	 				return context.data;
-				});
-	 		};
+			// // Overridden
+	 	// 	context.save = function(data){
+	 	// 		return $http.post('users', data).then(function(response) {
+	 	// 			context.setData(response.data);
+	 	// 			return context.data;
+			// 	});
+	 	// 	};
 
-	 		// Overridden
-	 		context.update = function(data){
-	 			return $http.put('users/'+data.id, data).then(function(response) {
-	 				context.setData(response.data);
-	 				return context.data;
-				});
-	 		};
+	 	// 	// Overridden
+	 	// 	context.update = function(data){
+	 	// 		return $http.post('users/'+data.id, data).then(function(response) {
+	 	// 			context.setData(response.data);
+	 	// 			return context.data;
+			// 	});
+	 	// 	};
 
-	 		context.delete = function() {
-	 			return $http.delete('users/'+context.data.id).then(function() {
-	 				context.clear();
-				});
-	 		};
+	 	// 	context.delete = function() {
+	 	// 		return $http.delete('users/'+context.data.id).then(function() {
+	 	// 			context.clear();
+			// 	});
+	 	// 	};
 
 	 		initialize();
 		}

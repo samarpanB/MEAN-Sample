@@ -1,0 +1,34 @@
+[
+    {
+        "_v": 0,
+        "_id": "561cf0b6082e14e0175ab2eb",
+        "created": "2015-10-13T11:53:26.284Z",
+        "isDeleted": false,
+        "modified": "2015-10-13T11:53:26.284Z",
+        "name": "Internal brief" 
+    },
+    {
+        "_v": 0,
+        "_id": "561cf0b6082e14e0175ab2eb",
+        "created": "2015-10-13T11:53:26.284Z",
+        "isDeleted": false,
+        "modified": "2015-10-13T11:53:26.284Z",
+        "name": "Other Party Evidence"
+    },
+    {
+        "_v": 0,
+        "_id": "561cf0b6082e14e0175ab2eb",
+        "created": "2015-10-13T11:53:26.284Z",
+        "isDeleted": false,
+        "modified": "2015-10-13T11:53:26.284Z",
+        "name": "Evidence"
+    },
+    {
+        "_v": 0,
+        "_id": "561cf0b6082e14e0175ab2eb",
+        "created": "2015-10-13T11:53:26.284Z",
+        "isDeleted": false,
+        "modified": "2015-10-13T11:53:26.284Z",
+        "name": "Client brief"
+    }
+]

@@ -1,0 +1,31 @@
+<div class="siteLoader" ng-show="isLoading">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <img src="assets/img/throbber.svg" width="16" height="16" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="grid-actions">
+            <div class="itemPerPageArea">
+                <select2 id="itemPerPage" ng-model="pgSize" s2-options="item as item for item in pgSizes" class="select2Control" ng-change="refreshTable(pgSize)">
+                </select2>
+            </div>
+            <a ui-sref="^.save({id:0})" class="btn btn-primary">Add</a>
+            <a href="javascript:void(0)" ng-show="(selectedCount > 0 && !isLoading)" class="btn btn-default" ng-click="deleteSelected(selected, selectedCount)">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="dataTables_filter">
+            <label>Search: <input type="text" class="input-medium" ng-model="searchText" ng-change="refreshTable()"></label>
+        </div>
+    </div>
+</div>
+
+<table class="table table-hover table-condensed" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstance"></table>

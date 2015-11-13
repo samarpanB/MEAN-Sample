@@ -22,13 +22,13 @@
                             </span>
                         </div>
                         <div class="checkbox check-default">
-                           <input type="checkbox" value="1" id="rememberMeCheckbox" ng-model="loginModel.rememberMe" ng-change="onRememberMeChange(loginModel.rememberMe)" id="rememberMeCheckbox">
+                           <input type="checkbox" value="1" id="rememberMeCheckbox" ng-model="loginModel.rememberMe" id="rememberMeCheckbox">
                            <label for="rememberMeCheckbox">Keep me logged in</label>
                         </div>
                     </div>
                     <div class="p-t-15 p-b-15 loginFormAction">
                         <div class="loginFormWrapper">
-                            <button type="submit" class="btn btn-primary btn-more-padding btn-bold-text pull-left">Login</button>
+                            <button type="submit" class="btn btn-primary btn-more-padding btn-bold-text pull-left" ng-disabled="loginProcessing">Login</button>
                             <a href="" class="link large-text pull-right forgotPassLink">Forgot password?</a>
                             <div class="clearfix"></div>
                         </div>

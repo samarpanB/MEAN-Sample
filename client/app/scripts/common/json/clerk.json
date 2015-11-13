@@ -1,0 +1,32 @@
+{
+  	"salutation": "",
+  	"firstName": "",
+  	"lastName": "",
+  	"mobile": "",
+  	"email":"",
+  	"dob":"",
+  	"gender": "Male",
+  	"maritalStatus":"Married",
+  	"address": {
+        "address": "",
+        "city": "",
+        "state": null,
+        "zip": "",
+        "country": null
+    },
+    "qualifications": "",
+    "photo":{
+      "name":"",
+      "size":0,
+      "type":"",
+      "url":""
+    },
+    "licenseDoc":{
+      "name":"",
+      "size":0,
+      "type":"",
+      "url":""
+    },
+    "status":"Active",
+    "user": ""
+}

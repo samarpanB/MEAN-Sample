@@ -1,6 +1,7 @@
 define(['app', 'angular',
     'modules/main/appTemplates', 
-    'modules/home/homeController'], 
+    'modules/home/homeController',
+    'modules/clients/clientController'], 
     function () {
     'use strict';
 
@@ -11,21 +12,21 @@ define(['app', 'angular',
     * # AppCtrl
     * Controller of the login module
     */
-    return ['$scope','$state',
-	function () {
+    return ['$scope','$state', 'sessionService', 'globals',
+	function ($scope, $state, SessionService, globals) {
 
-        // $scope.isLoading = true;
-        // $scope.user = globals.loggedInUser;
-        // $scope.user.fetch(false).then(function(){
-        //     $scope.isLoading = false;
-        // });
+        $scope.isLoading = true;
+        $scope.user = globals.loggedInUser;
+        $scope.user.fetch().then(function(){
+            $scope.isLoading = false;
+        });
 
-        // $scope.logout = function(){
-        //     // Do logout. 
-        //     // ToDo
-        //     // After success, do the following
-        // 	$scope.user = globals.loggedInUser = null;
-        //     $state.go('main.login');
-        // };
+        $scope.logout = function(){
+            SessionService.logout().then(function(){
+                // After success, do the following
+                $scope.user = globals.loggedInUser = null;
+                $state.go('main.login');
+            });
+        };
 	}];
 });

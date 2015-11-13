@@ -1,16 +1,17 @@
-define(['app', 'app.routes',
+define(['angular', 'app', 'app.routes',
     'modules/main/mainTemplates',
     'modules/login/loginController', 
     'modules/error/errorController', 
     'modules/main/appController'], 
-    function () {
+    function (angular) {
     'use strict';
 
-        return ['$rootScope', '$alert', '$timeout', 'mainTmpls',
-            function ($rootScope, $alert, $timeout) {
+        return ['$rootScope', '$alert', '$timeout', '$scope', 'mainTmpls',
+            function ($rootScope, $alert, $timeout, $scope) {
+                var _listenerRemovers = [];
                 var currentErrMsg = " ", currentSuccessMsg = " ", errAlert = null, successAlert = null;
                 // Global error handler
-                $rootScope.$on('error',function(event, message){
+                _listenerRemovers.push($rootScope.$on('error',function(event, message){
                     message = message || " ";
                     if(message !== currentErrMsg) {
                         currentErrMsg = message;
@@ -30,10 +31,10 @@ define(['app', 'app.routes',
                             }, 3500);
                         });
                     }
-                });
+                }));
 
                 // Global success handler
-                $rootScope.$on('success',function(event, message){
+                _listenerRemovers.push($rootScope.$on('success',function(event, message){
                     message = message || " ";
                     if(message !== currentSuccessMsg) {
                         currentSuccessMsg = message;
@@ -53,6 +54,14 @@ define(['app', 'app.routes',
                             }, 3500);
                         });
                     }
+                }));
+
+                // Garbage collect 
+                $scope.$on('$destroy', function() {
+                    // Remove listeners
+                    angular.forEach(_listenerRemovers, function(val){
+                        val();
+                    });
                 });
             }
         ];

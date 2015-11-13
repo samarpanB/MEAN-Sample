@@ -16,17 +16,16 @@ define(['angular'], function () {
                 }
                 $scope.loginProcessing = true;
                 SessionService.login(userName, password).then(function() {
+                    if($scope.loginModel.rememberMe) {
+                        $localStorage.demoRememberMe = $sessionStorage.demoRefreshToken;
+                    }
                     $state.go('main', {loginSuccess: true}, {reload: true});
                 },function() {
                     $scope.loginProcessing = false;
                 });
             };
 
-            $scope.onRememberMeChange = function(isRememberMe){
-                $localStorage.itRememberMe = isRememberMe;
-            };
-
-            SessionService.refresh($sessionStorage.advRefreshToken).then(
+            SessionService.refresh($sessionStorage.demoRefreshToken).then(
 	            function() {
 	                $state.go('main', {loginSuccess: true}, {reload: true});     
 	                return true;

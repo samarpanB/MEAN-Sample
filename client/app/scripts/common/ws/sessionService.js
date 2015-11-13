@@ -15,12 +15,12 @@ define(['angular', 'jquery'], function () {
 	            };
 	            var deferred = $q.defer();
 	            $http.post('auth/login', data).then(function(resp){
-	            	$sessionStorage.advAccessToken = resp.data.access_token;
-	            	$sessionStorage.advRefreshToken = resp.data.refresh_token;
+	            	$sessionStorage.demoAccessToken = resp.data.access_token;
+	            	$sessionStorage.demoRefreshToken = resp.data.refresh_token;
 	            	deferred.resolve(resp);
 	            }, function(err){
-	            	$sessionStorage.advAccessToken = '';
-	            	$sessionStorage.advRefreshToken = '';
+	            	$sessionStorage.demoAccessToken = '';
+	            	$sessionStorage.demoRefreshToken = '';
 	            	deferred.reject(err);
 	            });
 
@@ -36,17 +36,33 @@ define(['angular', 'jquery'], function () {
 	        	}
 	        	else
 	        	{
-	        		$http.post('auth/extendsession/'+refreshToken).then(function(resp){
-		            	$sessionStorage.advAccessToken = resp.data.access_token;
-		            	$sessionStorage.advRefreshToken = resp.data.refresh_token;
+	        		$http.post('auth/extendsession', {refreshToken: refreshToken}).then(function(resp){
+		            	$sessionStorage.demoAccessToken = resp.data.access_token;
+		            	$sessionStorage.demoRefreshToken = resp.data.refresh_token;
 		            	deferred.resolve(resp);
 		            }, function(err){
-		            	$sessionStorage.advAccessToken = '';
-		            	$sessionStorage.advRefreshToken = '';
+		            	$sessionStorage.demoAccessToken = '';
+		            	$sessionStorage.demoRefreshToken = '';
 		            	deferred.reject(err);
 		            });
 	        	}
 	            
+
+	            return deferred.promise;
+	        },
+	        logout: function() {
+	        	var deferred = $q.defer();
+	            $http.post('auth/logout').then(function(resp){
+	            	delete $sessionStorage.demoAccessToken;
+		            delete $sessionStorage.demoRefreshToken;
+		            delete $localStorage.demoRememberMe;
+	            	deferred.resolve(resp);
+	            }, function(err){
+	            	delete $sessionStorage.demoAccessToken;
+		            delete $sessionStorage.demoRefreshToken;
+		            delete $localStorage.demoRememberMe;
+	            	deferred.reject(err);
+	            });
 
 	            return deferred.promise;
 	        }

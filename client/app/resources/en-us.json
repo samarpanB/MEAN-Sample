@@ -1,3 +1,10 @@
 {
-    "loginTitle": "Login"
+    "loginTitle": "Login",
+    "forbiddenMsg": "No sufficient privileges for this action !",
+    "notFoundMsg": "This resource is not available any more !",
+    "sessionFailMsg": "Your session has expired & failed to recover.",
+    "unexpectedErrMsg": "Unexpected error occured. Please refresh the page.",
+    "goLoginTitle": "Go to login",
+    "errorTitle": "Error",
+    "Okaylbl": "Ok"
 }

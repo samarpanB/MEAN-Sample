@@ -37,7 +37,7 @@ define(['config', 'angular', 'underscore'], function (Config, angular, _) {
 	            if(editedItem)
 	            {
 	                angular.forEach(collection.records,function(val,key){
-	                    if(val.id === Number(editedItem.id))
+	                    if(val._id === Number(editedItem._id))
 	                    {
 	                        collection.records[key] = editedItem;
 	                    }
@@ -47,7 +47,7 @@ define(['config', 'angular', 'underscore'], function (Config, angular, _) {
 	            if(removedItemId)
 	            {
 	                angular.forEach(collection.records,function(val,key){
-	                    if(val.id === Number(removedItemId))
+	                    if(val._id === Number(removedItemId))
 	                    {
 	                        collection.records.splice(key,1);
 	                    }
@@ -59,7 +59,7 @@ define(['config', 'angular', 'underscore'], function (Config, angular, _) {
 	        },
 
 	        findItemById: function(collection, itemId) {
-	        	var item = _.findWhere(collection.records, {id: itemId});
+	        	var item = _.findWhere(collection.records, {_id: itemId});
 	        	if(item) {
 	        		return [200, item, {}];
 	        	}

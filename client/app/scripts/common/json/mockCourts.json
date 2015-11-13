@@ -1,0 +1,34 @@
+[
+    {
+        "_id": "56025a9c44ee2f512cd79732",
+        "name": "Patiala House Court",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.409Z",
+        "created": "2015-09-23T07:54:04.409Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79731",
+        "name": "Allahabad High Court",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.408Z",
+        "created": "2015-09-23T07:54:04.408Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79733",
+        "name": "Delhi High Court",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.410Z",
+        "created": "2015-09-23T07:54:04.410Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79734",
+        "name": "Supreme Court",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.410Z",
+        "created": "2015-09-23T07:54:04.410Z"
+    }
+]

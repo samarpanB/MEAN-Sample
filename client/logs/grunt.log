@@ -1,43 +1,47 @@
 
 Running "jshint:build" (jshint) task
->> 36 files lint free.
+>> 58 files lint free.
 
 Running "clean:build" (clean) task
->> 0 paths cleaned.
+>> 1 path cleaned.
 
 Running "preprocess:build" (preprocess) task
 
 Running "htmlmin:build" (htmlmin) task
-Minified .tmp/index.html 1.08 kB → 727 B
+Minified .tmp/index.html 1.16 kB → 801 B
 
 Running "requirejs:build" (requirejs) task
 >> RequireJS optimizer finished
 
 app
-Uncompressed size: 1915899 bytes.
-Compressed size: 169920 bytes gzipped. (537201 bytes minified)
+Uncompressed size: 2554465 bytes.
+Compressed size: 612470 bytes gzipped. (2540857 bytes minified)
 
 modules/main/mainController
-Uncompressed size: 1915899 bytes.
-Compressed size: 2130 bytes gzipped. (8232 bytes minified)
+Uncompressed size: 2554465 bytes.
+Compressed size: 8289 bytes gzipped. (41100 bytes minified)
 
 Running "clean:post-requirejs" (clean) task
 >> 1 path cleaned.
 
 Running "copy:build" (copy) task
-Created 4 directories, copied 12 files
+Created 15 directories, copied 186 files
 
 Running "clean:deploy" (clean) task
->> 0 paths cleaned.
+>> 4 paths cleaned.
 
 Running "copy:deploy" (copy) task
-Created 13 directories, copied 17 files
+Created 30 directories, copied 193 files
 
 Running "cleanempty:deploy" (cleanempty) task
->> 31 paths cleaned.
+>> 224 paths cleaned.
 
 Running "compress:zip" (compress) task
-Created build.zip (419414 bytes)
+Created build.zip (3197597 bytes)
+
+Running "configureProxies:deploy" (configureProxies) task
+Rewrite rule created for: [/\/api/ -> /api].
+Proxy created for: /api to localhost:3000
 
 Running "connect:deploy" (connect) task
 Waiting forever...

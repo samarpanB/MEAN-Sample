@@ -36,7 +36,12 @@ require.config({
         'tmplKeys': 'common/constants/templateKeys',
         'jqScrollbar': 'ext/jquery.scrollbar.min',
         'select2': 'ext/select2',
-        'angular-select2': 'ext/angular-select2'
+        'angular-select2': 'ext/edited/angular-select2',
+        'datatables': "ext/jquery.dataTables",
+        'angular-datatables': "ext/angular-datatables",
+        'angular-datatables.bootstrap': 'ext/angular-datatables.bootstrap',
+        'ng-tags-input': 'ext/ng-tags-input',
+        'slick': 'ext/slick.min'
     },
     shim: {
         jquery: {
@@ -78,8 +83,26 @@ require.config({
         },
         'angular-select2': {
             deps: ['jquery', 'select2', 'angular']
+        },
+        'datatables': {
+            deps: ['jquery']
+        },
+        'angular-datatables': {
+            deps: ['jquery', 'angular', 'datatables']
+        },
+        'angular-datatables.bootstrap': {
+            deps: ['jquery', 'angular', 'datatables', 'angular-datatables']
+        },
+        'ng-tags-input': {
+            deps: ['angular']
+        },
+        'slick': {
+            deps: [
+                'jquery'
+            ]
         }
     },
+    waitSeconds: 200,
     deps: [
         'app'
     ],

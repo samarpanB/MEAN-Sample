@@ -30,12 +30,13 @@ module.exports = function (grunt) {
             dest: '<%= cvars.app %>/<%= cvars.appjs %>/ext/',
             src: gruntConfig.bowerFiles
           },
-          // {
-          //   cwd: 'bower_components', expand: true, flatten: true,
-          //   dest: '<%= cvars.app %>/<%= cvars.appstyles %>/css/',
-          //   src: gruntConfig.cssFiles
-          // },
-          // Css Images
+          // Images
+          {
+            cwd: '<%= cvars.app %>/<%= cvars.appstyles %>/custom/img', expand: true,
+            dest: '<%= cvars.app %>/<%= cvars.appstyles %>/img/',
+            src: ["**"]
+          },
+          // Css Images 
           {
             cwd: 'bower_components', expand: true, flatten: true,
             dest: '<%= cvars.app %>/<%= cvars.appstyles %>/css/',
@@ -43,9 +44,15 @@ module.exports = function (grunt) {
           },
           // CSS Fonts
           {
-            cwd: 'bower_components', expand: true, flatten: true,
+            expand: true, flatten: true,
             dest: '<%= cvars.app %>/<%= cvars.appstyles %>/fonts/',
             src: gruntConfig.cssFonts
+          },
+          // CSS Fonts 2
+          {
+            cwd: 'bower_components', expand: true, flatten: true,
+            dest: '<%= cvars.app %>/<%= cvars.appstyles %>/css/fonts/',
+            src: gruntConfig.cssFonts2
           }
         ]
       },
@@ -98,7 +105,7 @@ module.exports = function (grunt) {
           '<%= cvars.app %>/<%= cvars.appjs %>/ext/*.js',
           '<%= cvars.app %>/<%= cvars.appstyles %>/css/**',
           '<%= cvars.app %>/<%= cvars.appstyles %>/fonts/**',
-          '<%= cvars.app %>/<%= cvars.appstyles %>/images/**',
+          '<%= cvars.app %>/<%= cvars.appstyles %>/img/**',
           '!<%= cvars.app %>/<%= cvars.appjs %>/ext/edited/**'
         ]
       }
@@ -106,7 +113,8 @@ module.exports = function (grunt) {
     cssmin: {
       setup: {
         files: {
-          '<%= cvars.app %>/<%= cvars.appstyles %>/css/external.css': gruntConfig.cssFiles
+          '<%= cvars.app %>/<%= cvars.appstyles %>/css/external.min.css': gruntConfig.cssExtFiles,
+          '<%= cvars.app %>/<%= cvars.appstyles %>/css/styles.min.css': gruntConfig.cssFiles
         }
       }
     },
@@ -157,6 +165,27 @@ module.exports = function (grunt) {
             }
           ]
         }
+      },
+      buildUnoptimized: {
+        options: {
+          baseUrl: '<%= cvars.app %>/<%= cvars.appjs %>',
+          mainConfigFile: '<%= cvars.app %>/<%= cvars.appjs %>/main.js',
+          removeCombined: true,
+          // findNestedDependencies: true,
+          optimize: 'none',
+          skipDirOptimize: true,
+          dir: '<%= cvars.build %>/<%= cvars.appjs %>/',
+          modules: [
+            { 
+              name: 'app',
+              excludeShallow: ['config']
+            },
+            {
+              name: 'modules/main/mainController',
+              exclude: ['config', 'app.common']
+            }
+          ]
+        }
       }
     },
     jshint: {
@@ -194,11 +223,11 @@ module.exports = function (grunt) {
             {
                 context: '/api',
                 host: 'localhost',
-                port: 8080,
+                port: 3000,
                 https: false,
                 xforward: false,
                 rewrite: {
-                    '/api': '/any-api-path'
+                    '/api': '/api'
                 }
             }
         ]
@@ -224,11 +253,11 @@ module.exports = function (grunt) {
           {
               context: '/api',
               host: 'localhost',
-              port: 8080,
+              port: 3000,
               https: false,
               xforward: false,
               rewrite: {
-                '/api': '/any-api-path'
+                '/api': '/api'
               }
           }
         ]
@@ -289,6 +318,33 @@ module.exports = function (grunt) {
     'compress:zip'
   ]);
 
+  /**
+   * build task
+   * Use r.js to build the project
+   */
+  grunt.registerTask('buildUO', [
+    'jshint:build',
+    'clean:build',
+    'preprocess:build',
+    'htmlmin:build',
+    'requirejs:buildUnoptimized',
+    'clean:post-requirejs',
+    'copy:build'
+  ]);
+
+
+  /**
+   * Release task
+   * Deploy to dist directory
+   */
+  grunt.registerTask('releaseUO', [
+    'buildUO',
+    'clean:deploy',
+    'copy:deploy',
+    'cleanempty:deploy',
+    'compress:zip'
+  ]);
+
   grunt.registerTask('test', [
     'jshint',
     'karma:unit'
@@ -299,11 +355,15 @@ module.exports = function (grunt) {
    * Launch webserver and watch for changes
    */
   grunt.registerTask('dev', [
-    'build', /*'configureProxies:server', 'testCases',*/ 'connect:server'
+    'build', 'configureProxies:server',/* 'testCases',*/ 'connect:server'
   ]);
 
   grunt.registerTask('deploy', [
-    'release', /*'configureProxies:deploy',*/ 'connect:deploy'
+    'release', 'configureProxies:deploy', 'connect:deploy'
+  ]);
+
+  grunt.registerTask('deployUO', [
+    'releaseUO', 'configureProxies:deploy', 'connect:deploy'
   ]);
 
   grunt.registerTask('default', ['release']);

@@ -10,10 +10,10 @@ define(['angularAMD', 'tmplRegister'],
             templateProvider: function(){
                 return tmplRegister.getTemplate(constants.TemplateKeys.Login);
             },
-            controllerUrl: 'modules/login/loginController',
+            controllerUrl: 'modules/login/loginController'/*,
             onEnter: ['$localStorage', function($localStorage){
                 $localStorage.$reset();
-            }]
+            }]*/
         }))
         .state('main.error', angularAMD.route({
             url: '^/error/{code:int}',
@@ -25,6 +25,23 @@ define(['angularAMD', 'tmplRegister'],
         .state('main.app', angularAMD.route({
             templateProvider: function(){
                 return tmplRegister.getTemplate(constants.TemplateKeys.AppMain);
+            },
+            resolve: {
+                loggedInUser: ['globals', '$q', '$interval', function(globals, $q, $interval) {
+                    var defer = $q.defer(), repeater;
+                    if(globals.loggedInUser) {
+                        defer.resolve(globals.loggedInUser);
+                    }
+                    else {
+                        repeater = $interval(function() {
+                            if(globals.loggedInUser) {
+                                defer.resolve(globals.loggedInUser);
+                                $interval.cancel(repeater);
+                            }
+                        }, 500);
+                    }
+                    return defer.promise;
+                }]
             },
             controllerUrl: 'modules/main/appController'
         }));

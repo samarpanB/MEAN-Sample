@@ -1,0 +1,12 @@
+{
+    "hearingDate": null,
+    "hearingPurpose": "",
+    "lawyers": [],
+    "clerks": [],
+    "court": "",
+    "roomNumber": "",
+    "judge": "",
+    "attendees": [],
+    "notes": [],
+    "caseId": ""
+}

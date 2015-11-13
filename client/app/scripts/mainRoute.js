@@ -1,16 +1,28 @@
-define(['angularAMD', 'config', 'text!modules/main/mainView.html', 'common/app.interceptor'], 
-    function(angularAMD, Config, mainView, interceptor) {
+define(['angularAMD', 'angular', 'config', 'text!modules/main/mainView.html', 'common/app.interceptor'], 
+    function(angularAMD, angular, Config, mainView, interceptor) {
     'use strict';
-    return ['$stateProvider','$urlRouterProvider', '$httpProvider', 
-        function ($stateProvider,$urlRouterProvider, $httpProvider) {
+    return ['$stateProvider','$urlRouterProvider', '$httpProvider', '$datepickerProvider',
+        '$timepickerProvider',
+        function ($stateProvider,$urlRouterProvider, $httpProvider, $datepickerProvider,
+            $timepickerProvider) {
 
-        $urlRouterProvider.otherwise('/'); // Need to revisit later....
+        $urlRouterProvider.otherwise('/');
 
         if(Config.mode !== 'test')
         {
             // Add interceptor
             $httpProvider.interceptors.push(interceptor);
         }
+
+        angular.extend($datepickerProvider.defaults, {
+            dateFormat: 'dd/MM/yyyy',
+            autoclose: true
+        });
+
+        angular.extend($timepickerProvider.defaults, {
+            timeFormat: 'HH:mm',
+            autoclose: true
+        });
 
         $stateProvider
         .state('main', angularAMD.route({
@@ -20,32 +32,26 @@ define(['angularAMD', 'config', 'text!modules/main/mainView.html', 'common/app.i
             params: {
                 loginSuccess: false
             },
-            onEnter: ['$state', '$stateParams', 'globals', 'userModel', '$location', 'sessionService', '$sessionStorage', 
-                'localize', '$locale', '$localStorage',
-                function($state, $stateParams, globals, userModel, $location, SessionService, $sessionStorage, 
-                    localize, $locale, $localStorage) {
+            onEnter: ['$state', '$timeout', '$stateParams', 'globals', 'userModel', '$location', 'sessionService', 
+                '$sessionStorage', 'localize', '$locale', '$localStorage',
+                function($state, $timeout , $stateParams, globals, userModel, $location, SessionService, 
+                    $sessionStorage, localize, $locale, $localStorage) {
                     return localize.setLanguage($locale.id).then(function(){
                         // Do session check here....
-                        return SessionService.refresh($sessionStorage.advRefreshToken).then(
+                        return SessionService.refresh($sessionStorage.demoRefreshToken || $localStorage.demoRememberMe).then(
                             function() {
-                                if($localStorage.itRememberMe || $stateParams.loginSuccess) {
-                                    // If success....
-                                    globals.loggedInUser = userModel.init();
-                                    return globals.loggedInUser.fetch(true, 1).then(function(){
-                                        // Now go to correct location....
-                                        if($location.path() === '/') {
-                                           $state.go('main.app.home');
-                                        }
-                                        return true;
-                                    }, function(){
-                                        $state.go('main.login');
-                                        return false;
-                                    });
-                                }
-                                else {
+                                // If success....
+                                globals.loggedInUser = userModel.init();
+                                return globals.loggedInUser.fetch().then(function(){
+                                    // Now go to correct location....
+                                    if($location.path() === '/') {
+                                       $state.go('main.app.home');
+                                    }
+                                    return true;
+                                }, function(){
                                     $state.go('main.login');
                                     return false;
-                                }
+                                });
                             },
                             function() {
                                 $state.go('main.login');

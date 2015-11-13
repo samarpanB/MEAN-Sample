@@ -20,6 +20,22 @@ define(['angularAMD', 'tmplRegister'],
                     controllerUrl: 'modules/home/homeController'                    
                 })
             }
+        })
+        .state('main.app.clients', {
+            resolve: {
+                tmplLoaded: ['appTemplates', function(){
+                    return true;
+                }]
+            },
+            views: {
+                'content': angularAMD.route({
+                    templateProvider: function(){
+                        return tmplRegister.getTemplate(constants.TemplateKeys.Clients);
+                    },
+                    controller: "ClientCtrl",
+                    controllerUrl: 'modules/clients/clientController'                    
+                })
+            }
         });
     }]);
 });

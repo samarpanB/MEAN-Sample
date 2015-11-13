@@ -1,6 +1,6 @@
 {
-  "name": "TemplateCodeArchitecture",
-  "version": "0.0.0",
+  "name": "Zegal",
+  "version": "1.0.0",
   "authors": [
     "Samarpan Bhattacharya <samarpan@metadesignsolutions.com>"
   ],
@@ -20,22 +20,27 @@
     "tests"
   ],
   "devDependencies": {
-    "angular": "~1.4.3",
-    "requirejs": "~2.1.18",
-    "angularAMD": "~0.2.1",
-    "angular-ui-router": "~0.2.15",
-    "jquery": "~2.1.4",
-    "requirejs-text": "~2.0.14",
-    "underscore": "~1.8.3",
-    "bootstrap": "~3.3.5",
-    "angular-strap": "~2.2.4",
-    "bootbox": "~4.4.0",
-    "ngstorage": "~0.3.6",
-    "jquery.scrollbar": "~0.2.7",
-    "angular-select2": "~1.4.1",
+    "angular": "1.4.3",
+    "angular-datatables": "0.5.0",
+    "angular-mocks": "1.4.4",
+    "angular-select2": "1.4.1",
+    "angular-strap": "2.2.4",
+    "angular-ui-router": "0.2.15",
+    "angularAMD": "0.2.1",
+    "bootbox": "4.4.0",
+    "bootstrap": "3.3.5",
+    "datatables": "1.10.9",
+    "Font-Awesome": "4.4.0",
+    "jquery": "2.1.4",
+    "jquery-ui": "1.11.4",
+    "jquery.scrollbar": "0.2.7",
+    "ng-tags-input": "3.0.0",
+    "ngstorage": "0.3.6",
+    "requirejs": "2.1.18",
+    "requirejs-text": "2.0.14",
     "select2": "3.5.2",
-    "jquery-ui": "~1.11.4",
-    "angular-mocks": "~1.4.4"
+    "slick-carousel": "~1.5.8",
+    "underscore": "1.8.3"
   },
   "resolutions": {
     "angular": "~1.4.3"

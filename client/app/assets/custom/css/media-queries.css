@@ -1,0 +1,306 @@
+/*** General tablets and phones ***/
+@media (max-width: 1300px) {
+	.btn-group .btn.btn-default.minW100 {
+	    min-width: auto;
+	}
+	.allCaseDetailsTable > tbody > tr > td{
+		width: 100%;
+		display: inline-block;
+	}
+	.allCaseDetailsTable > tbody > tr > td:first-child{
+		padding-bottom:5px!important;
+	}	
+	.allCaseDetailsTable > tbody > tr > td:last-child{
+		padding-top: 0px!important;
+	}	
+}
+@media (max-width: 1200px) {
+	.full-profile-box {
+	    margin-right: 0px;
+	}
+	.caseStatsArea {
+	    position: relative;
+	    width: 100%;
+	    margin: 0px auto;
+	    text-align: center;
+	    right:0px;
+	    top:0px;
+	    border-top: 1px dashed #eee;
+	    padding-top: 25px;
+	    margin-top:25px;
+	}
+}
+
+@media (max-width: 979px) {
+	.caseListItem .competitors .firstContestant {
+		max-width: 100%;
+		padding-right: 40px;
+		width: 100%;
+	}
+	.caseListItem .competitors .secondContestant, .caseListItem .competitors .caseId{
+	    margin-top: 5px;
+	}
+	.caseListItem .versus{
+		margin-left: 0px;
+		margin-top: 5px;
+	}
+	.caseListItem .competitors .secondContestant {
+	    max-width: 60%;
+	}
+	.caseStatsArea {
+	    padding-bottom: 10px;
+	}
+	.profileDetailArea {
+		padding: 15px;
+	}
+	.full-profile-box .round-part {
+	    width: 170px;
+	    height: 170px;
+	}
+	.full-profile-box .title-part {
+		margin-left: 190px;
+	}
+	.full-profile-box .title-part .name {
+	    font-size:19px;
+	    padding-top: 30px;
+	}
+	.full-profile-box .title-part .qualification {
+		margin-top: 0px;
+		margin-bottom: 7px;
+		padding-bottom: 7px;
+	}
+	.full-profile-box .title-part .qualification, .full-profile-box .title-part .contact{
+	    font-size: 13px;
+	}
+	
+	.caseDetailTable td, .allCaseDetailsTable td , .courtOrdersList td {
+	    padding:7px 10px !important;
+	}
+	.courtOrdersList .order-item td:first-child:after {
+	    left: 16px;
+	}
+	.user-profile-box .round-part {
+	    width: 50px;
+	    height: 50px;
+	    padding: 7px;
+	}
+	.user-profile-box .title-part .title{
+	    font-size: 16px;
+	    text-transform: uppercase;
+	    padding-top: 4px;
+	}
+	.user-profile-box .title-part{
+	    margin-left: 70px;
+	}
+	.versusBtnBox .versus{
+	    margin: 15px 0px;
+	    margin-left: 70px;
+	    padding: 7px 10px;
+	}
+	.caseDetailTable > tbody > tr > td{
+		width: 100%;
+		display: inline-block;
+	}
+	.logoLink{
+		display: none;
+	}
+	.logoLinkSidebar{
+		visibility: visible;
+	}
+	.header-seperation {
+	  width: 100% !important;
+	  z-index: 999;
+	  text-align: center;
+	  min-height: 60px;
+	  display: block !important;
+	}
+	.header .notifcation-center {
+	  margin-left: 15px;
+	}
+	.loginFormWrapper{
+	  padding-left: 50px;
+	  padding-right: 50px;
+	}
+	.page-content {
+	    margin-left:0px;
+	    margin-top: 0px;
+	    min-height: 100%;
+	}
+	.header-quick-nav {
+	    display: none;
+	 }
+	#main-menu-toggle-wrapper{
+	 	display: flex;
+	}
+	.user-info-wrapper {
+	  margin: 20px 31px 31px 31px;
+	}
+}
+
+@media (min-width: 767px) {
+	.noPaddingS{
+		padding:0px!important;
+	}
+	.pullRightS{
+		float:right;
+	}
+	/*** Page sidebar ***/
+  body.bottom-header .page-sidebar {
+    margin-top: 0;
+    margin-bottom: 58px;
+  }
+  .menu-non-fixed .page-sidebar {
+    margin-top: 0;
+    padding-top: 58px;
+  }
+  .page-sidebar {
+    display: inline-block;
+    float: left;
+    position: fixed;
+    width: 260px;
+  }
+
+  .menu-non-fixed .footer-widget {
+    z-index: 100;
+  }
+  .page-sidebar .page-sidebar-wrapper {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    max-width: 260px;
+    width: 260px!important;
+  }
+  .page-sidebar.fixed {
+    position: fixed;
+  }
+  .page-sidebar ul {
+    width: 260px;
+  }
+  /*** Page content ***/
+  /*.page-content {
+    margin-left:0px;
+    min-height: 100%;
+  }*/
+  .page-content.no-min-height {
+    min-height: auto;
+  }
+  .full-width-page .page-content {
+    margin-left: 0px !important;
+  }
+  .inner-menu {
+    padding-top: 60px;
+  }
+
+}
+@media (max-width: 767px) {
+	.modal-dialog {
+	    margin: 10px auto;
+	    width: 95%;
+	    max-width: 600px;
+	}
+	.modal-dialog.modalWidth500 {
+	    max-width: 500px;
+	}
+	.profileDetailArea {
+		padding: 10px;
+	}
+	.full-profile-box .round-part {
+	    width: 130px;
+	    height: 130px;
+	    margin:0px auto 0px auto;
+	}
+	.full-profile-box .title-part {
+		margin-left: 150px;
+	}
+	.full-profile-box .title-part .name {
+	    font-size:16px;
+	    padding-top:18px;
+	}
+	.full-profile-box .title-part .qualification {
+		margin-top: 0px;
+		margin-bottom: 5px;
+		padding-bottom: 5px;
+	}
+	.full-profile-box .title-part .qualification, .full-profile-box .title-part .contact{
+	    font-size: 12px;
+	}
+	.full-profile-box .title-part .qualification:before{
+		display:none;
+	}
+
+	.fullWidthSM{
+		width:100%;
+	}
+	.fc-header-left, .fc-header-center, .fc-header-right{
+		width:100%;
+		display:inline-block;
+		text-align: center;
+	}
+	.m-b-sm-15{
+	    margin-bottom:15px;
+	}
+	.table-responsive {
+	    margin-bottom: 0px;
+	    overflow-x: auto;
+	    border:none;
+	}
+	.caseDetailTable{
+		margin-top: 25px;
+	}
+	.rightTopActions{
+	  right: 15px;
+	}
+	.page-sidebar .page-sidebar-wrapper {
+	  width: 260px!important;
+	}
+	.loginPanel{
+	  width: 80%;
+	}
+	.loginFormWrapper{
+	  padding-left: 35px;
+	  padding-right: 35px;
+	}
+	.page-content .content {
+	  padding-left: 16px;
+	  padding-right: 16px;
+	}
+    .dropAreaUploadList h4.title { font-size: 16px; }
+}
+/*** Phones ***/
+@media (max-width: 480px) {
+	.caseListItem .competitors .secondContestant {
+		width: 100%;
+		max-width: 100%;
+		padding-right: 40px;
+	}
+	.caseListItem .competitors .caseId{
+		margin-left: 0px;
+	}
+	.full-profile-box .round-part {
+	    width: 100px;
+	    height: 100px;
+	    margin:0px auto 0px auto;
+	    float:none;
+	}
+	.full-profile-box .title-part {
+		margin-left: 0px;
+		text-align: center;
+	}
+	.full-profile-box .title-part .name {
+	    padding-top:7px;
+	}
+	.loginPanel{
+	  width: 85%;
+	}
+	.loginFormWrapper{
+	  padding-left: 20px;
+	  padding-right: 20px;
+	}
+    .dropAreaUploadList .left { width: 70px; }
+    .dropAreaUploadList .docContainer .docDetails .makeCenterOuter { height: 70px; }
+    .dropAreaUploadList .docContainer .docDetails .makeCenterOuter .makeCenterInner img { max-height: 60px; max-width: 60px; }
+    .dropAreaUploadList .right { padding-left: 80px; }
+}
+@media (max-width: 320px) {
+  
+}

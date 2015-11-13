@@ -1,0 +1,237 @@
+<form name="form" novalidate ng-submit="save()" ng-hide="isLoading">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select2 name="clientType" class="select2Control fullWidth" s2-options="i as i for i in clientTypes" ng-model="model.data.clientType" required></select2>
+                                <div class="text-right">
+                                    <span class="error " ng-show="form.$submitted && form.clientType.$error.required">
+                                        <label for="clientType" class="error">Client type is required !</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9" ng-if="model.data.clientType==='Company' || model.data.clientType==='GovtDept'">
+                            <div class="form-group">
+                                <input ng-model="model.data.firstName" class="form-control" type="text" name="firstName" required="" placeholder="Name the Company or Govt Organisation">
+                                <div class="text-right">
+                                    <span class="error " ng-show="form.$submitted && form.firstName.$error.required">
+                                        <label for="firstName" class="error">First name is required !</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="col-sm-5" ng-if="model.data.clientType!=='Company' && model.data.clientType!=='GovtDept'">
+                            <div class="form-group">
+                                <input ng-model="model.data.firstName" class="form-control" type="text" name="firstName" required="" placeholder="First Name">
+                                <div class="text-right">
+                                    <span class="error " ng-show="form.$submitted && form.firstName.$error.required">
+                                        <label for="firstName" class="error">First name is required !</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" ng-if="model.data.clientType!=='Company' && model.data.clientType!=='GovtDept'">      
+                            <div class="form-group">
+                                <input  ng-model="model.data.lastName" class="form-control" type="text" name="lastName" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" ng-if="model.data.clientType==='Company' || model.data.clientType==='GovtDept'">
+                    <div class="form-group">
+                        <input ng-model="model.data.contactPerson" type="text" class="form-control" placeholder="Name of Contact Person" name="contactPerson">
+                    </div>
+                </div>          
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input  ng-model="model.data.mobile" class="form-control" type="text" name="mobile" required="" placeholder="Mobile Number">
+                                </div>
+                                <div class="text-right">
+                                    <span class="error " ng-show="form.$submitted && form.mobile.$error.required">
+                                        <label for="mobile" class="error">Mobile Number is required !</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                        <!-- <div class="col-sm-6" ng-show="!model.data._id">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+                                    <input ng-model="password" class="form-control" type="password" name="password" ng-required="!model.data._id" placeholder="Password">
+                                </div>
+                                <div class="text-right">
+                                    <span class="error " ng-show="form.$submitted && form.password.$error.required">
+                                        <label for="password" class="error">Password is required !</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>  -->
+                      
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                            <input ng-model="model.data.email" class="form-control" type="email" name="email" required="" placeholder="Email">
+                        </div>
+                        <div class="text-right">
+                            <span class="error " ng-show="form.$submitted && form.email.$error.required">
+                                <label for="email" class="error">Email is mandatory !</label>
+                            </span>
+                            <span class="error "  ng-show="form.$submitted && form.email.$error.email">
+                                <label for="email" class="error">Invalid email !</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" ng-if="model.data.clientType!=='Company' && model.data.clientType!=='GovtDept'">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Father's Name</span>
+                            <input ng-model="model.data.fatherName" type="text" class="form-control" placeholder="Father's Name" name="fatherName">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" ng-if="model.data.clientType!=='Company' && model.data.clientType!=='GovtDept'">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group" >
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="dob">
+                                        <i class="fa fa-th"></i>
+                                    </label>
+                                    <input id="dt" type="text" class="form-control" ng-model="model.data.dob" name="dob" bs-datepicker data-max-date="today" placeholder="Date of Birth">
+                                </div>
+                                <div class="text-right">
+                                    <span class="error " ng-show="form.$submitted && form.dob.$error.required">
+                                        <label for="name" class="error">Date of birth is required !</label>
+                                    </span>
+                                    <span class="error " ng-show="form.$submitted && form.dob.$error.parse">
+                                        <label for="name" class="error">Invalid date !</label>
+                                    </span>
+                                    <span class="error " ng-show="form.$submitted && form.dob.$error.max">
+                                        <label for="name" class="error">Invalid date of birth !</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 noPaddingS">
+                            <div class="form-group">
+                                <div class="input-group fullWidth">
+                                    <select2 ng-model="model.data.maritalStatus" s2-options="maritalStatus as maritalStatus for maritalStatus in maritalStatuses" placeholder="Marital Status" class="select2Control fullWidth" name="maritalStatus"></select2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="btn-group" data-toggle="buttons" radio-btn-gp radio-model="model.data.gender">
+                                        <label class="btn btn-default">
+                                            <input type="radio" value="Male" name="gender"><i class="fa fa-male"></i> Male
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <input type="radio" value="Female" name="gender"><i class="fa fa-female"></i> Female
+                                        </label>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="error " ng-show="form.$submitted && !model.data.gender">
+                                            <label for="gender" class="error">Gender is required !</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label><strong>Address</strong></label>
+                        <div class="controls">
+                            <textarea ng-model="model.data.address.address" class="form-control" rows="5" placeholder="House#, Floor#, Block, Area"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">City</span>
+                                    <input ng-model="model.data.address.city" name="city" type="text" class="form-control" placeholder="City">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">State</span>
+                                    <div class="input-group fullWidth">
+                                        <select2 ng-model="model.data.address.state" s2-options="s._id as s.name for s in systemData.states" placeholder="Select" class="select2Control fullWidth" name="state"></select2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>   
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Pincode</span>
+                                    <input ng-model="model.data.address.zip" name="zip" type="text" class="form-control" placeholder="Pincode">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Country</span>
+                                    <div class="input-group fullWidth">
+                                        <select2 ng-model="model.data.address.country" s2-options="c._id as c.name for c in systemData.countries" class="select2Control fullWidth" name="country"></select2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="assetContainer " ng-if="model.data.photo && model.data.photo.dlUrl && model.data.photo.dlUrl.length > 0">
+                <img ng-src="{{model.data.photo.dlUrl}}" width="250" height="250"/>
+                <a href="javascript:void(0)" class="editThumb" ng-click="updateImage()">
+                    Edit <i class="glyphicon glyphicon-pencil icon-custom-2x"></i>
+                </a>
+            </div>
+            <div class="assetDropArea" ng-show="!(model.data.photo && model.data.photo.dlUrl && model.data.photo.dlUrl.length > 0)">
+                <h5>{{assetFile.length > 0 ? assetFile[0].name : ""}}</h5>
+                <div class="fileUpload btn btn-default btn-file">
+                    <input type="file" class="upload" file-model="assetFile"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttonAreaFooter m-t-12">
+        <button type="submit" class="btn btn-primary" ng-disabled="isFileUploading">Save</button>
+        <a href="" ng-click="cancel()" class="btn btn-default">Cancel</a>
+    </div>
+</form>
+<div class="siteLoader" ng-show="isLoading">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <img src="assets/img/throbber.svg" width="16" height="16" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>

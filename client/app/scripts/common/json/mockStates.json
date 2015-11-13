@@ -1,0 +1,274 @@
+[
+    {
+        "_id": "56025a9c44ee2f512cd79707",
+        "name": "Delhi",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.210Z",
+        "created": "2015-09-23T07:54:04.209Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79708",
+        "name": "Haryana",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.216Z",
+        "created": "2015-09-23T07:54:04.216Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79709",
+        "name": "Punjab",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.216Z",
+        "created": "2015-09-23T07:54:04.216Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7970a",
+        "name": "Uttar Pradesh",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.216Z",
+        "created": "2015-09-23T07:54:04.216Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7970b",
+        "name": "Uttarakhand",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.217Z",
+        "created": "2015-09-23T07:54:04.217Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7970c",
+        "name": "Himachal Pradesh",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.217Z",
+        "created": "2015-09-23T07:54:04.217Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7970d",
+        "name": "Jammu & Kashmir",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.217Z",
+        "created": "2015-09-23T07:54:04.217Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7970e",
+        "name": "Rajasthan",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.217Z",
+        "created": "2015-09-23T07:54:04.217Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7970f",
+        "name": "Madhya Pradesh",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.217Z",
+        "created": "2015-09-23T07:54:04.217Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79710",
+        "name": "Gujarat",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.218Z",
+        "created": "2015-09-23T07:54:04.218Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79711",
+        "name": "Bihar",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.218Z",
+        "created": "2015-09-23T07:54:04.218Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79712",
+        "name": "Jharkhand",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.218Z",
+        "created": "2015-09-23T07:54:04.218Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79713",
+        "name": "Chhattisgarh",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.219Z",
+        "created": "2015-09-23T07:54:04.219Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79714",
+        "name": "Odisha",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.219Z",
+        "created": "2015-09-23T07:54:04.219Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79715",
+        "name": "West Bengal",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.219Z",
+        "created": "2015-09-23T07:54:04.219Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79716",
+        "name": "Sikkim",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.219Z",
+        "created": "2015-09-23T07:54:04.219Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79717",
+        "name": "Assam",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.220Z",
+        "created": "2015-09-23T07:54:04.220Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79718",
+        "name": "Arunachal Pradesh",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.220Z",
+        "created": "2015-09-23T07:54:04.220Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79719",
+        "name": "Tripura",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.220Z",
+        "created": "2015-09-23T07:54:04.220Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7971a",
+        "name": "Mizoram",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.220Z",
+        "created": "2015-09-23T07:54:04.220Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7971b",
+        "name": "Manipur",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.220Z",
+        "created": "2015-09-23T07:54:04.220Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7971c",
+        "name": "Nagaland",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.220Z",
+        "created": "2015-09-23T07:54:04.220Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7971d",
+        "name": "Maharashtra",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.221Z",
+        "created": "2015-09-23T07:54:04.221Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7971e",
+        "name": "Goa",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.222Z",
+        "created": "2015-09-23T07:54:04.222Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd7971f",
+        "name": "Andhra Pradesh",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.222Z",
+        "created": "2015-09-23T07:54:04.222Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79720",
+        "name": "Karnataka",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.222Z",
+        "created": "2015-09-23T07:54:04.222Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79721",
+        "name": "Kerala",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.222Z",
+        "created": "2015-09-23T07:54:04.222Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79722",
+        "name": "Tamil Nadu",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.223Z",
+        "created": "2015-09-23T07:54:04.223Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79723",
+        "name": "Pondicherry",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.223Z",
+        "created": "2015-09-23T07:54:04.223Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79724",
+        "name": "Lakshwadeep",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.223Z",
+        "created": "2015-09-23T07:54:04.223Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79725",
+        "name": "Andaman & Nicobar Islands",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.224Z",
+        "created": "2015-09-23T07:54:04.224Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79726",
+        "name": "Chandigarh",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.224Z",
+        "created": "2015-09-23T07:54:04.224Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79727",
+        "name": "Daman & Diu",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.224Z",
+        "created": "2015-09-23T07:54:04.224Z"
+    },
+    {
+        "_id": "56025a9c44ee2f512cd79728",
+        "name": "Dadra & Nagar Haveli",
+        "__v": 0,
+        "isDeleted": false,
+        "modified": "2015-09-23T07:54:04.224Z",
+        "created": "2015-09-23T07:54:04.224Z"
+    }
+]

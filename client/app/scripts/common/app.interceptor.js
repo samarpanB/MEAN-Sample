@@ -1,23 +1,36 @@
-define(['angular', 'underscore', 'config', 'bootbox'], function(angular, _, appConfig, bootbox) {
+/*jshint camelcase: false */
+define(['angular', 'underscore', 'config', 'bootbox'], function(angular, _, appConfig) {
  'use strict';
 
   return['$q', '$log', '$rootScope', '$localStorage', '$sessionStorage', '$injector', '$filter',
-    function($q, $log, $rootScope, $localStorage, $sessionStorage, $injector, $filter) {
+    function($q, $log, $rootScope, $localStorage, $sessionStorage, $injector) {
         var ignorePaths = ['resources/', '.html'];
         var ignoreURIs = ['auth/extendsession', 'auth/login'];
         var lastDeferredPromise = null;
-        var alertWindow = null;
+        // var alertWindow = null;
 
         // Update config.....
         var updateConfig = function(conf, appConfig) {
             // Check if uri invoked is for authentication
-            if(conf.url.indexOf('auth/') >= 0)
+            var match = _.find(ignoreURIs,function(uri){
+                return conf.url.indexOf(uri) >= 0;
+            });
+            if(match)
             {
                 conf.url = appConfig.wsBaseUri + '/' + appConfig.wsVersion + '/' + conf.url;
             }
-            else if($sessionStorage.advAccessToken)
+            // If not for authentication, then send bearer token
+            else if($sessionStorage.demoAccessToken)
             {
-                conf.headers.Authorization = "Bearer " + $sessionStorage.advAccessToken;
+                conf.headers.Authorization = "Bearer " + $sessionStorage.demoAccessToken;
+                if(conf.url.indexOf(appConfig.wsBaseUri + '/' + appConfig.wsVersion + '/') === -1){
+                    conf.url = appConfig.wsBaseUri + '/' + appConfig.wsVersion + '/' + conf.url;                    
+                }
+            }
+            // If not for authentication, then send bearer token
+            else if($localStorage.demoAccessToken)
+            {
+                conf.headers.Authorization = "Bearer " + $localStorage.demoAccessToken;
                 if(conf.url.indexOf(appConfig.wsBaseUri + '/' + appConfig.wsVersion + '/') === -1){
                     conf.url = appConfig.wsBaseUri + '/' + appConfig.wsVersion + '/' + conf.url;                    
                 }
@@ -60,7 +73,10 @@ define(['angular', 'underscore', 'config', 'bootbox'], function(angular, _, appC
             },
 
             'response': function(response) {
-                if(response.config.method.toLowerCase() === 'post' && response.status === 200) {
+                if((response.config.method.toLowerCase() === 'post' || 
+                    response.config.method.toLowerCase() === 'put' || 
+                    response.config.method.toLowerCase() === 'delete') && 
+                    response.status === 200) {
                     var match = _.find(ignoreURIs,function(uri){
                         return response.config.url.indexOf(uri) >= 0;
                     });
@@ -77,8 +93,8 @@ define(['angular', 'underscore', 'config', 'bootbox'], function(angular, _, appC
                 if (response.status === 401 && response.config.url.indexOf('auth/') < 0) {
                     var SessionService = $injector.get('sessionService'),
                         $http = $injector.get('$http'),
-                        $state = $injector.get('$state'),
-                        i18nFilter = $filter('i18n'),
+                        // $state = $injector.get('$state'),
+                        // i18nFilter = $filter('i18n'),
                         deferred;
                     
                     // If there is some last deferred promise, means we have already invoked WS for token refresh.
@@ -86,7 +102,7 @@ define(['angular', 'underscore', 'config', 'bootbox'], function(angular, _, appC
                     if(!lastDeferredPromise) {
                         deferred = $q.defer();
                         // Recover the session
-                        SessionService.refresh($sessionStorage.advRefreshToken).then(deferred.resolve, deferred.reject);
+                        SessionService.refresh($sessionStorage.demoRefreshToken).then(deferred.resolve, deferred.reject);
                         // Store latest deferred promise
                         lastDeferredPromise = deferred.promise;
                     }
@@ -98,28 +114,27 @@ define(['angular', 'underscore', 'config', 'bootbox'], function(angular, _, appC
                         });
                     }, function(){
                         lastDeferredPromise = null;
-                        if(!alertWindow) {
-                            alertWindow = bootbox.alert({
-                                message:i18nFilter("sessionFailMsg"),
-                                title: i18nFilter('errorTitle'),
-                                closeButton: false,
-                                buttons: {
-                                    ok: {
-                                        label: i18nFilter("goLoginTitle")
-                                    }
-                                },
-                                callback: function() {
-                                    $state.go('main.login');
-                                    alertWindow = null;
-                                }
-                            });
-                        }
+                        // if(!alertWindow) {
+                        //     alertWindow = bootbox.alert({
+                        //         message:i18nFilter("sessionFailMsg"),
+                        //         title: i18nFilter('errorTitle'),
+                        //         buttons: {
+                        //             ok: {
+                        //                 label: i18nFilter("Okaylbl")
+                        //             }
+                        //         }
+                        //     });
+                        // }
                         return $q.reject(response);
                     });
                 }
-                else if(response.data && angular.isDefined(response.data.detail)) {
-                    $rootScope.$broadcast('error', response.data.detail);
-                    $log.error('Request: '+response.config.url+' Response Error : ' + response.data.detail);
+                else if(response.data && angular.isDefined(response.data.message)) {
+                    $rootScope.$broadcast('error', response.data.message);
+                    $log.error('Request: '+response.config.url+' Response Error : ' + response.data.message);
+                }
+                else if(response.data && angular.isDefined(response.data.error_description)) {
+                    $rootScope.$broadcast('error', response.data.error_description);
+                    $log.error('Request: '+response.config.url+' Response Error : ' + response.data.error_description);
                 }
                 else if (response.status && angular.isDefined(response.statusText)) {
                     $rootScope.$broadcast('error', response.statusText);

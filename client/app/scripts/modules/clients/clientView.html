@@ -1,0 +1,28 @@
+<!-- BEGIN BREADCRUMB -->
+<!-- <ul class="breadcrumb">
+    <li ng-class="{'active': ('main.app.clients.list' | isState)}"><a>Clients</a></li>
+    <li class="active" ng-if="('main.app.clients.save' | isState)"><a>Add New</a></li>
+</ul> -->
+<!-- END BREADCRUMB -->
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+    <h3 ng-if="('main.app.clients.list' | isState)">
+        <a ui-sref="main.app.home"><i class="icon-custom-left"></i></a> Clients
+    </h3>
+    <h3 ng-if="('main.app.clients.save' | isState)">
+        <a href="javascript:void(0);" ng-click="goBack()"><i class="icon-custom-left"></i></a> Add Client
+    </h3>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- BEGIN PlACE PAGE CONTENT HERE -->
+<div class="row-fluid">
+    <div class="span12">
+        <div ng-class="['grid', 'simple', {'withDataTable': ('main.app.clients.list' | isState)}]">
+            <div class="grid-body" ui-view="pageContent" onload="resize()">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PLACE PAGE CONTENT HERE -->

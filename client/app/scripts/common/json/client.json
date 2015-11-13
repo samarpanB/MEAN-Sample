@@ -1,0 +1,27 @@
+{
+  	"clientType": "",
+    "clientTypeId": null,
+  	"firstName": "",
+  	"lastName": "",
+  	"mobile": "",
+  	"email":"",
+  	"fatherName":"",
+  	"dob":"",
+  	"gender": "Male",
+  	"maritalStatus":"Married",
+  	"address": {
+        "address": "",
+        "city": "",
+        "state": null,
+        "zip": "",
+        "country": null
+    },
+    "photo":{
+      "name":"",
+      "size":0,
+      "type":"",
+      "url":""
+    },
+    "status":"Active",
+    "user": ""
+}

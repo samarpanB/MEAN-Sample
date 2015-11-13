@@ -1,14 +1,13 @@
-define(['angular', 
-    'common/models/userModel',
-    'common/models/usersModel'], 
-    function (angular, userModel, usersModel) {
+define(['angular', 'common/models/clientModel', 'common/models/clientsModel', 'common/models/userModel'], 
+    function (angular, clientModel, clientsModel, userModel) {
     'use strict';
 
     /* Directive Module */
     var module = angular.module('models', []);
 
+    module.factory('clientModel', clientModel);
+    module.factory('clientsModel', clientsModel);
     module.factory('userModel', userModel);
-    module.factory('usersModel', usersModel);
-
+    
     return module;
 });

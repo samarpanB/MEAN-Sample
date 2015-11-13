@@ -1,6 +1,6 @@
 define(['angular', 'common/app.constants', 'common/app.values', 'common/app.utils',
-	'common/ws/sessionService'], 
-	function (angular, constants, globals, utils, sessionService){
+	'common/ws/sessionService', 'common/ws/systemDataService'], 
+	function (angular, constants, globals, utils, sessionService, systemDataService){
 	'use strict';
 
 	var module = angular.module('services',[]);
@@ -14,6 +14,7 @@ define(['angular', 'common/app.constants', 'common/app.values', 'common/app.util
 	// Application level Helper factories
 	module.factory('Utils',utils);
 	module.factory('sessionService', sessionService);
+	module.factory('systemDataService', systemDataService);
 
 	return module;
 });

@@ -1,7 +1,8 @@
-define(['angular'],
+define(['angular', 'common/menuTreeItem/menuTreeItem', 'common/fileUpload/fileUpload', 
+	'common/radioGroup/radioGroup', 'common/carousel/carousel'],
 	function (angular) {
 	'use strict';
 
 	/* Directive Module */
-	angular.module('directives', [/*Add all the directives here*/]);
+	angular.module('directives', ['menu', 'fileUpload', 'radioGroup', 'carouselComponent']);
 });
