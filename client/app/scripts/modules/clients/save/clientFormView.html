@@ -1,4 +1,4 @@
-<form name="form" novalidate ng-submit="save()" ng-hide="isLoading">
+<!-- <form name="form" novalidate ng-submit="save()" ng-hide="isLoading">
     <div class="row">
         <div class="col-sm-8">
             <div class="row">
@@ -62,20 +62,6 @@
                             </div>
                         </div>    
                     </div>
-                        <!-- <div class="col-sm-6" ng-show="!model.data._id">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
-                                    <input ng-model="password" class="form-control" type="password" name="password" ng-required="!model.data._id" placeholder="Password">
-                                </div>
-                                <div class="text-right">
-                                    <span class="error " ng-show="form.$submitted && form.password.$error.required">
-                                        <label for="password" class="error">Password is required !</label>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>  -->
-                      
                 </div>
                 <div class="col-sm-12">
                     <div class="form-group">
@@ -225,7 +211,39 @@
         <button type="submit" class="btn btn-primary" ng-disabled="isFileUploading">Save</button>
         <a href="" ng-click="cancel()" class="btn btn-default">Cancel</a>
     </div>
-</form>
+</form> -->
+<dynamic-form form-config="formConfig" form-items="formItems">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <form-item>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" form-label>
+                                        </span>
+                                        <form-field/>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="error " ng-show="form.$submitted && form.firstName.$error.required">
+                                            <label for="firstName" class="error">First name is required !</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form-item>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttonAreaFooter m-t-12">
+        <button type="submit" class="btn btn-primary" ng-disabled="isFileUploading">Save</button>
+        <a href="" ng-click="cancel()" class="btn btn-default">Cancel</a>
+    </div>
+</dynamic-form>
 <div class="siteLoader" ng-show="isLoading">
     <div class="outer">
         <div class="middle">

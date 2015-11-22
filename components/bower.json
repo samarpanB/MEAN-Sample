@@ -1,0 +1,25 @@
+{
+  "name": "ng-components",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Samarpan"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/samarpanB/MEAN-Sample",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.8",
+    "jquery": "~2.1.4",
+    "requirejs": "~2.1.22",
+    "text": "requirejs-text#~2.0.14"
+  }
+}

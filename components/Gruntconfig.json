@@ -1,0 +1,46 @@
+{
+
+  "configVars": {
+    "app": "app",
+    "appjs": "scripts",
+    "appstyles": "assets",
+    "build": "dist",
+    "hostname": "localhost",
+    "port": 9090,
+    "devport": 9000
+  },
+  "bowerFiles": [
+    "angular/angular.js",
+    "jquery/dist/jquery.min.js",
+    "requirejs/require.js",
+    "text/text.js"
+  ],
+  "cssFiles": [
+    "app/assets/custom/css/fonts.css",
+    "app/assets/custom/css/animate.min.css",
+    "app/assets/custom/css/style.css",
+    "app/assets/custom/css/responsive.css",
+    "app/assets/custom/css/main.css",
+    "app/assets/custom/css/media-queries.css",
+    "app/assets/custom/css/custom-icon-set.css"
+  ],
+  "cssExtFiles": [
+    
+  ],
+  "cssImages": [
+    
+  ],
+  "cssFonts": [
+    
+  ],
+  "cssFonts2": [
+    
+  ],
+  "buildFiles": [
+    "scripts/ext/edited/**", "assets/**"
+  ],
+  "deployFiles": [
+    "assets/**", "scripts/**", "!scripts/**/*.html", "!scripts/**/*.json"
+  ]
+
+}

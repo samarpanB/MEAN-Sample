@@ -14,35 +14,23 @@ Running "requirejs:build" (requirejs) task
 >> RequireJS optimizer finished
 
 app
-Uncompressed size: 2554465 bytes.
-Compressed size: 612470 bytes gzipped. (2540857 bytes minified)
+Uncompressed size: 2591226 bytes.
+Compressed size: 622089 bytes gzipped. (2577327 bytes minified)
 
 modules/main/mainController
-Uncompressed size: 2554465 bytes.
-Compressed size: 8289 bytes gzipped. (41100 bytes minified)
+Uncompressed size: 2591226 bytes.
+Compressed size: 8369 bytes gzipped. (41770 bytes minified)
 
 Running "clean:post-requirejs" (clean) task
 >> 1 path cleaned.
 
 Running "copy:build" (copy) task
-Created 15 directories, copied 186 files
+Created 15 directories, copied 187 files
 
-Running "clean:deploy" (clean) task
->> 4 paths cleaned.
-
-Running "copy:deploy" (copy) task
-Created 30 directories, copied 193 files
-
-Running "cleanempty:deploy" (cleanempty) task
->> 224 paths cleaned.
-
-Running "compress:zip" (compress) task
-Created build.zip (3197597 bytes)
-
-Running "configureProxies:deploy" (configureProxies) task
+Running "configureProxies:server" (configureProxies) task
 Rewrite rule created for: [/\/api/ -> /api].
 Proxy created for: /api to localhost:3000
 
-Running "connect:deploy" (connect) task
+Running "connect:server" (connect) task
 Waiting forever...
-Started connect web server on http://localhost:9090
+Started connect web server on http://localhost:9000

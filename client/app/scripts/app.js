@@ -5,7 +5,8 @@ define(['app.common', 'mainRoute', 'jquery'],
 
     // Setup dependencies for the main application angular module....
     var appDeps = ['ui.router', 'directives', 'filters', 'services', 'mocks', 'models', 'localization', 
-        'mgcrea.ngStrap', 'ngStorage', 'rt.select2', 'datatables', 'datatables.bootstrap', 'ngTagsInput'];
+        'mgcrea.ngStrap', 'ngStorage', 'rt.select2', 'datatables', 'datatables.bootstrap', 'ngTagsInput',
+        'components'];
 
     /**
      * @ngdoc overview

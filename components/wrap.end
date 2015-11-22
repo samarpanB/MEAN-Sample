@@ -1,0 +1,12 @@
+// Register in the values from the outer closure for common dependencies
+  define('jquery', function() {
+    return $;
+  });
+  define('angular', function() {
+    return angular;
+  });
+
+  // Use almond's special top level synchronous require to trigger factory
+  // functions, get the final module, and export it as the public api.
+  return require('main');
+}));

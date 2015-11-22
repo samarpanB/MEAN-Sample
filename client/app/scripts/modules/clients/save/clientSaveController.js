@@ -130,6 +130,19 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
 	            };
 
             	init();
+
+            	$scope.formConfig = {
+
+            	};
+
+            	$scope.formItems = [
+            		{
+            			label: 'First Name',
+            			name: 'firstName',
+            			css: "form-control",
+            			placeholder: 'First Name'
+            		}
+            	];
             }
         ]);
 });

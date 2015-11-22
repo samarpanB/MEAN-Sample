@@ -41,7 +41,8 @@ require.config({
         'angular-datatables': "ext/angular-datatables",
         'angular-datatables.bootstrap': 'ext/angular-datatables.bootstrap',
         'ng-tags-input': 'ext/ng-tags-input',
-        'slick': 'ext/slick.min'
+        'slick': 'ext/slick.min',
+        'components': 'ext/edited/components.min'
     },
     shim: {
         jquery: {
@@ -52,6 +53,9 @@ require.config({
                 'jquery'
             ],
             exports: 'angular'
+        },
+        'components': {
+            deps: ['jquery', 'angular']
         },
         underscore: {
             exports: '_'

@@ -4,5 +4,5 @@ define(['angular', 'common/menuTreeItem/menuTreeItem', 'common/fileUpload/fileUp
 	'use strict';
 
 	/* Directive Module */
-	angular.module('directives', ['menu', 'fileUpload', 'radioGroup', 'carouselComponent']);
+	angular.module('directives', ['menu', 'radioGroup', 'carouselComponent']);
 });
