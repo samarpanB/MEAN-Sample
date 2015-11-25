@@ -15,7 +15,9 @@ define(['jquery', 'formBuilder/formFields/formFieldController'],
                 link: function(scope, el) {
                     var tmpl = formFieldTemplateService.getTemplate(scope.type);
                     if(tmpl) {
-                        $(el).append($compile(tmpl)(scope));
+
+                        tmpl = $(el).append(tmpl);
+                        $compile(tmpl)(scope);
                     }
                 }
             };

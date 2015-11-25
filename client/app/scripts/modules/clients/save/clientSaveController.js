@@ -141,7 +141,25 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
             			name: 'firstName',
             			css: "form-control",
             			placeholder: 'First Name',
-						type: FORM_FIELD_CONSTANTS.text
+						type: FORM_FIELD_CONSTANTS.text,
+						validations: {
+							required: {
+								value: true,
+								message: "First name is mandatory !"
+							},
+							minlength: {
+								value: 2,
+								message: "Min length 1"
+							},
+							maxlength: {
+								value: 5,
+								message: "Max length 5"
+							},
+							pattern: {
+								value: /^A/,
+								message: "Pattern mismatch"
+							}
+						}
             		},
 					{
             			label: 'Email',

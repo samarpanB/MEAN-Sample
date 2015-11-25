@@ -3,23 +3,23 @@ Running "jshint:build" (jshint) task
 >> 58 files lint free.
 
 Running "clean:build" (clean) task
->> 0 paths cleaned.
+>> 1 path cleaned.
 
 Running "preprocess:build" (preprocess) task
 
 Running "htmlmin:build" (htmlmin) task
-Minified .tmp/index.html 1.2 kB → 801 B
+Minified .tmp/index.html 1.16 kB → 801 B
 
 Running "requirejs:build" (requirejs) task
 >> RequireJS optimizer finished
 
 app
-Uncompressed size: 2659296 bytes.
-Compressed size: 626466 bytes gzipped. (2645722 bytes minified)
+Uncompressed size: 2618043 bytes.
+Compressed size: 629282 bytes gzipped. (2601841 bytes minified)
 
 modules/main/mainController
-Uncompressed size: 2659296 bytes.
-Compressed size: 8402 bytes gzipped. (42856 bytes minified)
+Uncompressed size: 2618043 bytes.
+Compressed size: 8730 bytes gzipped. (42854 bytes minified)
 
 Running "clean:post-requirejs" (clean) task
 >> 1 path cleaned.

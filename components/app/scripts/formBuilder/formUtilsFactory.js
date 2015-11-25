@@ -1,4 +1,4 @@
-define(['angular'], function (angular) {
+define(['angular', '_'], function (angular, _) {
     'use strict';
 
     return [function () {
@@ -22,6 +22,12 @@ define(['angular'], function (angular) {
                 });
 
                 return normalized;
+            },
+
+            getFormItemByName: function(name, formItems) {
+                return _.find(formItems, function(item) {
+                    return item.name === name;
+                });
             }
         };
     }];

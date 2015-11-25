@@ -1,2 +1,7 @@
-<input ng-class="field.css" type="url" name="{{field.name}}" ng-model="value"
-    ng-attr-placeholder="{{field.placeholder}}">
+<input ng-class="field.css" type="url" name="{{field.name}}" 
+	ng-model="value"
+    ng-attr-placeholder="{{field.placeholder}}"
+    ng-required="field.validations.required.value"
+    ng-minlength="field.validations.minlength.value"
+    ng-maxlength="field.validations.maxlength.value"
+    ng-pattern="field.validations.pattern.value">

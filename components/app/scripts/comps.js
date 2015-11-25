@@ -1,3 +1,3 @@
-define(['fileUpload/fileUpload', 'formBuilder/formBuilder'], function() {
+define(['formBuilder/formBuilder'], function() {
 	'use strict';
 });

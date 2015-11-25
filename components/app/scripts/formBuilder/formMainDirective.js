@@ -20,6 +20,8 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
                         formItem = $(transEl).find("form-item"),
                         formLbl = formItem.find("[form-label]"),
                         formField = formItem.find("form-field"),
+                        formFieldErr = formItem.find("form-field-error"),
+                        formFieldErrMsg = formFieldErr.find("[form-field-error-message]"),
                         // formSubmit = $(transEl).find("[form-submit]"),
                         formSubmitCancel = $(transEl).find("[form-submit-cancel]"),
                         compiledTransEl;
@@ -33,12 +35,19 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
                         'field': 'item',
                         'type': '{{item.type}}',
                     });
+                    formFieldErr.attr({
+                        'ng-show': 'item.errorMsg && item.errorMsg.length > 0'
+                    });
+                    formFieldErrMsg.attr({
+                        'ng-bind': "item.errorMsg"
+                    });
                     formSubmitCancel.attr({
                         'ng-click': 'formSubmitCancel()'
                     });
 
+                    element.find("#form").append(transEl);
                     compiledTransEl = $compile(transEl)(scope);
-                    element.find("#form").append(compiledTransEl);
+                    
                 });
             }
         };
