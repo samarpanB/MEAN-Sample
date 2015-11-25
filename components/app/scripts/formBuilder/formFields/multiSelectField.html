@@ -1,0 +1,8 @@
+<select ng-class="field.css" name="{{field.name}}" multiple="true" ng-model="value">
+    <option ng-if="field.placeholder && field.placeholder.length > 0" value=""
+        ng-bind="{{field.placeholder}}">
+    </option>
+    <option ng-repeat="option in field.dataSource" value="{{option}}">
+        {{option}}
+    </option>
+ </select>

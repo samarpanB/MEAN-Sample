@@ -13,7 +13,8 @@
     "angular/angular.js",
     "jquery/dist/jquery.min.js",
     "requirejs/require.js",
-    "text/text.js"
+    "text/text.js",
+    "underscore/underscore-min.js"
   ],
   "cssFiles": [
     "app/assets/custom/css/fonts.css",
@@ -25,16 +26,16 @@
     "app/assets/custom/css/custom-icon-set.css"
   ],
   "cssExtFiles": [
-    
+
   ],
   "cssImages": [
-    
+
   ],
   "cssFonts": [
-    
+
   ],
   "cssFonts2": [
-    
+
   ],
   "buildFiles": [
     "scripts/ext/edited/**", "assets/**"

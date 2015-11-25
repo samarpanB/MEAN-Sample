@@ -1,13 +1,13 @@
-define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus', 
-	'common/constants/clientType'], 
+define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
+	'common/constants/clientType'],
     function (app, _, bootbox, MaritalStatus, ClientType) {
     'use strict';
 
-        app.controller('ClientSaveCtrl', ['$scope', '$state', '$stateParams', 'clientModel', 'utils', 
-        	'constants', '$q', '$timeout', 'systemDataService', 'globals',
+        app.controller('ClientSaveCtrl', ['$scope', '$state', '$stateParams', 'clientModel', 'utils',
+        	'constants', '$q', '$timeout', 'systemDataService', 'globals', 'FORM_FIELD_CONSTANTS',
             function ($scope, $state, $stateParams, clientModel, utils, constants, $q, $timeout, systemDataService,
-            	globals) {
-	            
+            	globals, FORM_FIELD_CONSTANTS) {
+
 	            var init = function() {
 	            	$scope.getReqdData().then(function(){
 	            		// Setup mode for view
@@ -19,14 +19,14 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
 			            }
 	            	});
 	            };
-            	
+
             	$scope.isLoading = false;
 	            $scope.model = clientModel.get();
 	            $scope.mode = 'new';
 	            $scope.clientTypes = _.values(ClientType);
 	            $scope.maritalStatuses = _.values(MaritalStatus);
 	            $scope.systemData = globals.systemData;
-	            $scope.password = ""; 
+	            $scope.password = "";
                 $scope.assetFile = null;
 
 	            $scope.open = function(clientId) {
@@ -41,12 +41,12 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
 
 	            $scope.createNew = function() {
 	                $scope.model.clear();
-	                
+
 	                // Set default country as India
 	                var defCountry = _.findWhere($scope.systemData.countries, {name: "India"});
 	                $scope.model.data.address.country = defCountry ? defCountry._id : "";
 
-	                $scope.mode = 'new'; 
+	                $scope.mode = 'new';
 	                $scope.assetFile = null;
 	            };
 
@@ -92,7 +92,7 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
 	                if($scope.form.$invalid || !$scope.model.data.gender){
 	                    return false;
 	                }
-	                
+
 	                if($scope.mode === 'new') {
 	                    $scope.saveNew();
 	                }
@@ -140,7 +140,84 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
             			label: 'First Name',
             			name: 'firstName',
             			css: "form-control",
-            			placeholder: 'First Name'
+            			placeholder: 'First Name',
+						type: FORM_FIELD_CONSTANTS.text
+            		},
+					{
+            			label: 'Email',
+            			name: 'email',
+            			css: "form-control",
+            			placeholder: 'Please enter your email',
+						type: FORM_FIELD_CONSTANTS.email
+            		},
+					{
+            			label: 'Date of birth',
+            			name: 'dob',
+            			css: "form-control",
+            			placeholder: 'mm-dd-yyyy',
+						type: FORM_FIELD_CONSTANTS.date
+            		},
+					{
+            			label: 'Current time',
+            			name: 'currentTime',
+            			css: "form-control",
+            			placeholder: 'HH:mm',
+						type: FORM_FIELD_CONSTANTS.time
+            		},
+					{
+            			label: 'Event schedule',
+            			name: 'eventDt',
+            			css: "form-control",
+            			placeholder: 'mm-dd-yyyy HH:mm',
+						type: FORM_FIELD_CONSTANTS.dateTime
+            		},
+					{
+            			label: 'Webpage',
+            			name: 'webpage',
+            			css: "form-control",
+            			placeholder: 'Webpage',
+						type: FORM_FIELD_CONSTANTS.url
+            		},
+					{
+            			label: 'Country',
+            			name: 'country',
+            			css: "form-control",
+            			// placeholder: 'Select....',
+						type: FORM_FIELD_CONSTANTS.singleSelect,
+						dataSource: [
+							"India",
+							"Australia",
+							"South Africa",
+							"USA"
+						]
+            		},
+					{
+            			label: 'State',
+            			name: 'state',
+            			css: "form-control",
+            			// placeholder: 'Select....',
+						type: FORM_FIELD_CONSTANTS.multiSelect,
+						dataSource: [
+							"Punjab",
+							"Haryana",
+							"Himachal Pradesh",
+							"New Delhi",
+							"Chandigarh"
+						]
+            		},
+					{
+            			label: 'Sign Mandatory',
+            			name: 'isSignMandatory',
+            			css: "form-control",
+            			placeholder: 'Sign Mandatory',
+						type: FORM_FIELD_CONSTANTS.checkbox
+            		},
+					{
+            			label: 'Description',
+            			name: 'description',
+            			css: "form-control",
+            			placeholder: 'Description',
+						type: FORM_FIELD_CONSTANTS.textArea
             		}
             	];
             }

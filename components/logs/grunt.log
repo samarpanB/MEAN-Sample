@@ -1,6 +1,6 @@
 
 Running "jshint:build" (jshint) task
->> 10 files lint free.
+>> 13 files lint free.
 
 Running "clean:build" (clean) task
 >> 1 path cleaned.
@@ -8,9 +8,9 @@ Running "clean:build" (clean) task
 Running "requirejs:buildUnoptimized" (requirejs) task
 >> RequireJS optimizer finished
 
-/Users/samarpan/root/projects/MEAN-Sample/components/dist/components.min.js
-Uncompressed size: 35177 bytes.
-Compressed size: 10130 bytes gzipped.
+D:/projects/sample/MEAN-Sample/components/dist/components.min.js
+Uncompressed size: 39856 bytes.
+Compressed size: 11242 bytes gzipped.
 
 Running "clean:post-requirejs" (clean) task
 >> 0 paths cleaned.
