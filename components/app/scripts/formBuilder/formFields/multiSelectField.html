@@ -1,4 +1,4 @@
-<select ng-class="field.css" name="{{field.name}}" multiple="true" ng-model="value" 
+<select ng-class="field.css" name="{{field.name}}" multiple="true" ng-model="value"
 	ng-required="field.validations.required.value">
     <option ng-if="field.placeholder && field.placeholder.length > 0" value=""
         ng-bind="{{field.placeholder}}">
@@ -6,4 +6,4 @@
     <option ng-repeat="option in field.dataSource" value="{{option}}">
         {{option}}
     </option>
- </select>
+</select>

@@ -154,10 +154,6 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
 							maxlength: {
 								value: 5,
 								message: "Max length 5"
-							},
-							pattern: {
-								value: /^A/,
-								message: "Pattern mismatch"
 							}
 						}
             		},
@@ -166,7 +162,8 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
             			name: 'email',
             			css: "form-control",
             			placeholder: 'Please enter your email',
-						type: FORM_FIELD_CONSTANTS.email
+						type: FORM_FIELD_CONSTANTS.email,
+						isRemovable: true
             		},
 					{
             			label: 'Date of birth',

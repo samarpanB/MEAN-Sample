@@ -12,26 +12,43 @@ define(['angular',
     function (angular, checkboxField, dateField, dateTimeField, emailField, multiSelectField,
         singleSelectField, textAreaField, textField, timeField, urlField) {
         'use strict';
+        return function () {
+            function TemplateService(map) {
+                var context = this,
+                    _tmplMap = angular.copy(map);
 
-        return ['FORM_FIELD_CONSTANTS', function (CONSTANTS) {
-            var _templateMap = {};
-            _templateMap[CONSTANTS.text] = textField;
-            _templateMap[CONSTANTS.email] = emailField;
-            _templateMap[CONSTANTS.date] = dateField;
-            _templateMap[CONSTANTS.time] = timeField;
-            _templateMap[CONSTANTS.dateTime] = dateTimeField;
-            _templateMap[CONSTANTS.url] = urlField;
-            _templateMap[CONSTANTS.singleSelect] = singleSelectField;
-            _templateMap[CONSTANTS.multiSelect] = multiSelectField;
-            _templateMap[CONSTANTS.checkbox] = checkboxField;
-            _templateMap[CONSTANTS.textArea] = textAreaField;
+                context.getTemplate = function(type) {
+                    return _tmplMap[type];
+                };
 
-            this.getTemplate = function(type) {
-                return _templateMap[type];
-            };
+                context.setTemplate = function(type, tmpl) {
+                    _tmplMap[type] = tmpl;
+                };
+            }
 
-            this.setTemplate = function(type, tmpl) {
-                _templateMap[type] = tmpl;
-            };
-        }];
-});
+            this.templates = {};
+
+            this.$get = ['FORM_FIELD_CONSTANTS', function (CONSTANTS) {
+                var _defaultTmplMap = {},
+                    _templateMap = {};
+                _defaultTmplMap[CONSTANTS.text] = textField;
+                _defaultTmplMap[CONSTANTS.email] = emailField;
+                _defaultTmplMap[CONSTANTS.date] = dateField;
+                _defaultTmplMap[CONSTANTS.time] = timeField;
+                _defaultTmplMap[CONSTANTS.dateTime] = dateTimeField;
+                _defaultTmplMap[CONSTANTS.url] = urlField;
+                _defaultTmplMap[CONSTANTS.singleSelect] = singleSelectField;
+                _defaultTmplMap[CONSTANTS.multiSelect] = multiSelectField;
+                _defaultTmplMap[CONSTANTS.checkbox] = checkboxField;
+                _defaultTmplMap[CONSTANTS.textArea] = textAreaField;
+                _templateMap = angular.merge({}, _defaultTmplMap, this.templates);
+
+        		return {
+        			init: function (map) {
+            			return map ? new TemplateService(map) :
+                            new TemplateService(_templateMap);
+            		}
+        		};
+            }];
+        };
+    });

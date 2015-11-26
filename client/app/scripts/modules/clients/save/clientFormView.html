@@ -212,7 +212,7 @@
         <a href="" ng-click="cancel()" class="btn btn-default">Cancel</a>
     </div>
 </form> -->
-<dynamic-form form-config="formConfig" form-items="formItems">
+<dynamic-form form-config="formConfig" form-items="formItems" fb-tmpl-instance="fbTmplInstance">
     <div class="row">
         <div class="col-sm-8">
             <div class="row">
@@ -225,6 +225,9 @@
                                         <span class="input-group-addon" form-label>
                                         </span>
                                         <form-field/>
+                                        <form-field-remove>
+                                            <button class="btn">X</button>
+                                        </form-field-remove>
                                     </div>
                                     <form-field-error>
                                         <div class="text-right">

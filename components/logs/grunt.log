@@ -8,9 +8,9 @@ Running "clean:build" (clean) task
 Running "requirejs:buildUnoptimized" (requirejs) task
 >> RequireJS optimizer finished
 
-/Users/samarpan/root/projects/MEAN-Sample/components/dist/components.min.js
-Uncompressed size: 56816 bytes.
-Compressed size: 17320 bytes gzipped.
+D:/projects/sample/MEAN-Sample/components/dist/components.min.js
+Uncompressed size: 60152 bytes.
+Compressed size: 17850 bytes gzipped.
 
 Running "clean:post-requirejs" (clean) task
 >> 0 paths cleaned.

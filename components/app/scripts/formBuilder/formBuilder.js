@@ -10,7 +10,7 @@ define(['angular','formBuilder/formMainDirective', 'formBuilder/formFields/formF
 	module
 	.constant('FORM_FIELD_CONSTANTS', formFieldConstants)
 	.value('formDefaultValidationMessages', formDefaultValidationMsgs)
-	.service('formFieldTemplateService', formFieldTemplateService)
+	.provider('formFieldTemplateService', formFieldTemplateService)
 	.factory('formUtils', formUtilsFactory)
 	.directive('dynamicForm', dynamicFormDirective)
 	.directive('formField', formFieldDirective);

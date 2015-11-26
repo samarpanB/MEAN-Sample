@@ -1,12 +1,19 @@
-define(['angularAMD', 'angular', 'config', 'text!modules/main/mainView.html', 'common/app.interceptor'], 
+define(['angularAMD', 'angular', 'config', 'text!modules/main/mainView.html', 'common/app.interceptor'],
     function(angularAMD, angular, Config, mainView, interceptor) {
     'use strict';
     return ['$stateProvider','$urlRouterProvider', '$httpProvider', '$datepickerProvider',
-        '$timepickerProvider',
+        '$timepickerProvider', 'formFieldTemplateServiceProvider',
         function ($stateProvider,$urlRouterProvider, $httpProvider, $datepickerProvider,
-            $timepickerProvider) {
+            $timepickerProvider, formFieldTemplateServiceProvider) {
 
         $urlRouterProvider.otherwise('/');
+
+        // formFieldTemplateServiceProvider.templates = {
+        //     multiSelect: "<select2 ng-class='field.css' name='{{field.name}}' multiple='true'" +
+        //         "ng-model='value' ng-required='field.validations.required.value' " +
+        //         "s2-options='option as option for option in field.dataSource'>" +
+        //     "</select2>"
+        // };
 
         if(Config.mode !== 'test')
         {
@@ -32,9 +39,9 @@ define(['angularAMD', 'angular', 'config', 'text!modules/main/mainView.html', 'c
             params: {
                 loginSuccess: false
             },
-            onEnter: ['$state', '$timeout', '$stateParams', 'globals', 'userModel', '$location', 'sessionService', 
+            onEnter: ['$state', '$timeout', '$stateParams', 'globals', 'userModel', '$location', 'sessionService',
                 '$sessionStorage', 'localize', '$locale', '$localStorage',
-                function($state, $timeout , $stateParams, globals, userModel, $location, SessionService, 
+                function($state, $timeout , $stateParams, globals, userModel, $location, SessionService,
                     $sessionStorage, localize, $locale, $localStorage) {
                     return localize.setLanguage($locale.id).then(function(){
                         // Do session check here....
@@ -57,7 +64,7 @@ define(['angularAMD', 'angular', 'config', 'text!modules/main/mainView.html', 'c
                                 $state.go('main.login');
                                 return false;
                             }
-                        ); 
+                        );
                     },
                     function() {
                         $state.go('main.error', {code: 1});

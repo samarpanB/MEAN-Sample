@@ -1,17 +1,39 @@
 define(['angular'], function () {
   'use strict';
 
-    return ['$scope', '$element', 'formUtils', 'formDefaultValidationMessages', 
-        function (scope, $element, formUtils, formDefaultValidationMessages) {
-            var _watchers = [];
+    return ['$scope', '$element', 'formUtils', 'formDefaultValidationMessages',
+        'formFieldTemplateService',
+        function (scope, $element, formUtils, formDefaultValidationMessages,
+            formFieldTemplateService) {
+            var _watcherRemovers = [];
 
-            function cleanErrors() {
-                angular.forEach(scope.formItems, function (item) {
+            function cleanErrors(formItems) {
+                angular.forEach(formItems, function (item) {
                     item.errorMsg = null;
                 });
             }
 
+            function calculateErrors(errObj, formItems, defaultMsgs) {
+                cleanErrors(formItems);
+
+                angular.forEach(errObj, function (err, key) {
+                    angular.forEach(err, function (field) {
+                        var formItem = formUtils.getFormItemByName(field.$name, scope.formItems);
+                        formItem.errorMsg = formItem.errorMsg ||
+                            (formItem.validations && formItem.validations.hasOwnProperty(key) &&
+                                formItem.validations[key].message) ||
+                            defaultMsgs[key];
+                    });
+                });
+            }
+
+            this.fbTmplInstance = scope.fbTmplInstance = formFieldTemplateService.init();
+
             scope.formSubmit = function() {
+                if(scope.form.$invalid) {
+                    return;
+                }
+
                 var formSerialized = $element.find('#form').serializeArray();
                 formSerialized = formUtils.normalizeFormValues(formSerialized);
                 scope.onFormSubmit({formValues: formSerialized});
@@ -21,26 +43,39 @@ define(['angular'], function () {
                 scope.onFormSubmitCancel();
             };
 
-            _watchers.push(scope.$watch(function() {
-                return scope.form.$error;
+            scope.removeItem = function(index) {
+                scope.formItems.splice(index, 1);
+            };
+
+            _watcherRemovers.push(scope.$watch(function(sc) {
+                return sc.form.$error;
             }, function (n, o){
                 if((scope.form.$dirty || scope.form.$submitted) && n !== o) {
-                    cleanErrors();
+                    calculateErrors(n, scope.formItems, formDefaultValidationMessages);
+                }
+            }, true));
 
-                    angular.forEach(n, function (err, key) {
-                        angular.forEach(err, function (field) {
-                            var formItem = formUtils.getFormItemByName(field.$name, scope.formItems);
-                            formItem.errorMsg = formItem.errorMsg ||
-                                formItem.validations[key].message ||
-                                formDefaultValidationMessages[key];
-                        });
-                    });
+            _watcherRemovers.push(scope.$watch(function(sc) {
+                return sc.form.$dirty;
+            }, function (n, o){
+                if((n || scope.form.$submitted) && n !== o) {
+                    calculateErrors(scope.form.$error, scope.formItems, formDefaultValidationMessages);
+                }
+            }, true));
+
+            _watcherRemovers.push(scope.$watch(function(sc) {
+                return sc.form.$submitted;
+            }, function (n, o){
+                if((n || scope.form.$dirty) && n !== o) {
+                    calculateErrors(scope.form.$error, scope.formItems, formDefaultValidationMessages);
                 }
             }, true));
 
             // Garbage collect
             scope.$on('$destroy', function() {
-
+                angular.forEach(_watcherRemovers, function(val) {
+                    val();
+                });
             });
         }
     ];

@@ -8,6 +8,7 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
             scope: {
                 formConfig: '=',
                 formItems: '=',
+                fbTmplInstance: '=',
                 onFormSubmit: '&',
                 onFormSubmitCancel: '&'
             },
@@ -22,6 +23,8 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
                         formField = formItem.find("form-field"),
                         formFieldErr = formItem.find("form-field-error"),
                         formFieldErrMsg = formFieldErr.find("[form-field-error-message]"),
+                        formFieldRemove = formItem.find("form-field-remove"),
+                        formFieldRemoveBtn = formFieldRemove.find("button"),
                         // formSubmit = $(transEl).find("[form-submit]"),
                         formSubmitCancel = $(transEl).find("[form-submit-cancel]"),
                         compiledTransEl;
@@ -33,7 +36,7 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
                     });
                     formField.attr({
                         'field': 'item',
-                        'type': '{{item.type}}',
+                        'type': '{{item.type}}'
                     });
                     formFieldErr.attr({
                         'ng-show': 'item.errorMsg && item.errorMsg.length > 0'
@@ -41,13 +44,18 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
                     formFieldErrMsg.attr({
                         'ng-bind': "item.errorMsg"
                     });
+                    formFieldRemove.attr({
+                        'ng-if': "item.isRemovable"
+                    });
+                    formFieldRemoveBtn.attr({
+                        'ng-click': "removeItem($index)"
+                    });
                     formSubmitCancel.attr({
                         'ng-click': 'formSubmitCancel()'
                     });
 
                     element.find("#form").append(transEl);
                     compiledTransEl = $compile(transEl)(scope);
-                    
                 });
             }
         };
