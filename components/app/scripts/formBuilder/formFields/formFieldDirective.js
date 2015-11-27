@@ -18,7 +18,8 @@ define(['jquery', 'formBuilder/formFields/formFieldController'],
                         return;
                     }
 
-                    var tmpl = field.template || formCtrl.fbTmplInstance.getTemplate(scope.type);
+                    var tmpl = scope.field && scope.type && (scope.field.template ||
+                        formCtrl.fbTmplInstance.getTemplate(scope.type));
                     if(tmpl) {
                         tmpl = $(el).append(tmpl);
                         $compile(tmpl)(scope);

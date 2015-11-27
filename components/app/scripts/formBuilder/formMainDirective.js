@@ -9,6 +9,7 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
                 formConfig: '=',
                 formItems: '=',
                 fbTmplInstance: '=',
+                fbDefaults: '=',
                 onFormSubmit: '&',
                 onFormSubmitCancel: '&'
             },
@@ -45,7 +46,9 @@ define(['jquery', 'text!formBuilder/formMain.html', 'formBuilder/formMainControl
                         'ng-bind': "item.errorMsg"
                     });
                     formFieldRemove.attr({
-                        'ng-if': "item.isRemovable"
+                        'ng-if': "item.isRemovable || " +
+                            "(item.isRemovable === undefined && fbDefaults && "+
+                                "fbDefaults.fieldsRemovable)"
                     });
                     formFieldRemoveBtn.attr({
                         'ng-click': "removeItem($index)"

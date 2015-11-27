@@ -47,6 +47,12 @@ define(['angular'], function () {
                 scope.formItems.splice(index, 1);
             };
 
+            if (scope.fbDefaults && scope.fbDefaults.defaultValidationMessages) {
+                angular.value("formDefaultValidationMessages",
+                    angular.merge(formDefaultValidationMessages,
+                        scope.fbDefaults.defaultValidationMessages));
+            }
+
             _watcherRemovers.push(scope.$watch(function(sc) {
                 return sc.form.$error;
             }, function (n, o){

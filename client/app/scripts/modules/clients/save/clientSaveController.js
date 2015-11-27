@@ -135,6 +135,10 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
 
             	};
 
+				$scope.fbDefaults = {
+					fieldsRemovable: true
+				};
+
             	$scope.formItems = [
             		{
             			label: 'First Name',
@@ -163,7 +167,7 @@ define(['app', 'underscore', 'bootbox', 'common/constants/maritalStatus',
             			css: "form-control",
             			placeholder: 'Please enter your email',
 						type: FORM_FIELD_CONSTANTS.email,
-						isRemovable: true
+						isRemovable: false
             		},
 					{
             			label: 'Date of birth',
