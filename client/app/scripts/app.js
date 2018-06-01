@@ -13,7 +13,7 @@ define(['app.common', 'mainRoute', 'jquery'],
      *
      * Main module of the application.
      */
-    app = 
+    var app = 
         angular.module('mainApp', appDeps)
         // Config
         .config(routes)
