@@ -4,7 +4,7 @@ define(['app.common', 'mainRoute', 'jquery'],
     'use strict';
 
     // Setup dependencies for the main application angular module....
-    var appDeps = ['ui.router', 'directives', 'filters', 'services', 'mocks', 'models', 'localization', 
+    appDeps = ['ui.router', 'directives', 'filters', 'services', 'mocks', 'models', 'localization', 
         'mgcrea.ngStrap', 'ngStorage', 'rt.select2', 'datatables', 'datatables.bootstrap', 'ngTagsInput',
         'components'];
 
@@ -13,7 +13,7 @@ define(['app.common', 'mainRoute', 'jquery'],
      *
      * Main module of the application.
      */
-    var app = 
+    app = 
         angular.module('mainApp', appDeps)
         // Config
         .config(routes)
